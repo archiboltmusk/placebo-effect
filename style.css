@@ -63,6 +63,14 @@ body{
 .figure{margin:30px 0 8px;max-width:680px}
 .fig-caption{font-family:'Space Grotesk',sans-serif;font-style:italic;font-size:14px;color:var(--ash);margin-top:10px;max-width:680px}
 
+/* ── colophon / imprint page ── */
+.colophon{border:2px solid var(--ink);background:var(--card);max-width:680px;margin:28px 0;padding:32px}
+.colophon .col-title{font-family:'Archivo Black',sans-serif;font-weight:900;font-size:22px;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:4px}
+.colophon .col-sub{font-family:'Space Grotesk',sans-serif;font-style:italic;font-weight:400;font-size:15px;color:var(--ash);margin-bottom:20px}
+.colophon p{font-family:'Space Mono',monospace;font-size:12.5px;line-height:1.8;color:#403d35;margin-bottom:14px;max-width:none}
+.colophon p:last-child{margin-bottom:0}
+.colophon .col-isbn{color:var(--blue)}
+
 /* ── duel (two-sided dark section) ── */
 .duel{border-bottom:2px solid var(--ink);background:var(--navy);color:var(--paper)}
 .duel .wrap{padding:64px 28px}
