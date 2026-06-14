@@ -133,6 +133,13 @@ body{
 .diagram .diagram-title{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:10px;border-bottom:2px solid var(--ink);background:var(--navy);color:var(--yellow)}
 .diagram .flow{margin:0;padding:18px;max-width:none}
 
+/* ── bar chart ── */
+.diagram .bars{padding:20px;display:flex;flex-direction:column;gap:18px}
+.bar-track{border:2px solid var(--ink);background:var(--paper);height:32px}
+.bar-fill{height:100%;width:max(var(--pct),64px);background:var(--navy);color:#fff;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;display:flex;align-items:center;padding:0 10px;white-space:nowrap}
+.bar-fill.alt{background:var(--red)}
+.bar-label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;color:var(--ash);margin-top:8px}
+
 /* ── converging flow ── */
 .converge{margin:30px 0 8px;max-width:680px}
 .converge .conv-row{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
