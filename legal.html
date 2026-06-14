@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legal Notice &amp; Disclaimers · The Placebo Economy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">The Placebo Economy</a>
+    <nav>
+      <a href="index.html#index">Contents</a>
+    </nav>
+    <a class="cta" href="index.html#index"><span class="cta-full">Full Index →</span><span class="cta-short">Index →</span></a>
+  </div>
+</div>
+
+<header class="page-head">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html#index">Index</a> / Legal Notice</div>
+    <div class="part-tag"><svg class="dd-icon dd-md dd-red"><use href="doodles.svg#dd-bang"></use></svg> // legal notice</div>
+    <h1>Disclaimers <span class="hl">&amp; Licensing</span></h1>
+    <p class="dek">This is a work of investigative critique and public-health commentary, not medical guidance — and every factual claim it makes is meant to be checked against the primary source it cites.</p>
+  </div>
+</header>
+
+<section class="part">
+  <div class="wrap">
+
+    <div class="chap reveal">
+      <span class="cnum">1.</span>
+      <div>
+        <h3>Authorship &amp; Licensing</h3>
+        <p>The content published on this platform is an independent work of investigative journalism, academic critique, and public-health commentary. All text, analysis, and data visualizations are © the author and licensed under a <strong>Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC BY-NC-ND 4.0)</strong>. You may share this work in its original, unmodified form with credit, for non-commercial purposes; you may not alter, transform, or build upon it, or use it commercially, without prior written permission.</p>
+      </div>
+    </div>
+
+    <div class="chap reveal">
+      <span class="cnum">2.</span>
+      <div>
+        <h3>Not Medical Advice</h3>
+        <p>The contents of this manuscript — including its interactive modules, diagrams, and chapter text — are presented strictly for educational, informational, and public-policy analysis purposes. Nothing here constitutes, or is intended to substitute for, professional medical advice, clinical diagnosis, or therapeutic management. Readers must consult qualified, evidence-based healthcare professionals regarding any personal metabolic, pharmacological, or physiological concerns.</p>
+        <p class="lead-line">The author disclaims all liability for actions taken or omitted on the basis of this material.</p>
+      </div>
+    </div>
+
+    <div class="chap reveal">
+      <span class="cnum">3.</span>
+      <div>
+        <h3>Fair Use &amp; Reproducible Truth</h3>
+        <p>Evaluations of corporate branding, product lifecycles, and policy initiatives in this work are grounded in publicly available corporate statements, statutory codes, court records, and open-access, peer-reviewed clinical and toxicological data — see the <a href="appendix.html">Appendix</a> for the full reference index. Critique of product efficacy or regulatory frameworks, made on that basis, constitutes protected fair comment, scientific dissent, and public-interest reporting. Where a claim about a named entity or product appears in this text, it is intended to be supported by a citable primary source; truth and empirical reproducibility are the standard against which every such claim should be measured.</p>
+
+        <div class="pull">
+          <div class="pull-label">A Note on Names</div>
+          <p>Specific companies, products, and formulations are referred to by name, in plain text, solely for the purpose of news reporting, criticism, and commentary on matters of public-health policy. No logos, trademarks, packaging, or other proprietary brand imagery appear anywhere on this site.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<nav class="booknav single">
+  <div class="wrap">
+    <a class="idx" href="index.html#index">
+      <small>Contents</small>
+      <span>Back to Full Index</span>
+    </a>
+  </div>
+</nav>
+
+<footer>
+  <div class="wrap">
+    <span>The Placebo Economy · Working Title</span>
+    <span class="disc">Editorial concept built from a book proposal. Figures cited within (e.g. drug-development cost) are author claims and should be verified against primary sources before publication.</span>
+  </div>
+</footer>
+
+<script>
+const progressFill=document.getElementById('progress-fill');
+function updateProgress(){
+  const d=document.documentElement;
+  const scrollable=d.scrollHeight-d.clientHeight;
+  progressFill.style.transform='scaleX('+(scrollable>0?(d.scrollTop/scrollable):0)+')';
+}
+window.addEventListener('scroll',updateProgress,{passive:true});
+updateProgress();
+
+document.querySelectorAll('.reveal').forEach(el=>el.classList.add('pre'));
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('pre');e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
