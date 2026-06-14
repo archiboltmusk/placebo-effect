@@ -298,11 +298,11 @@ footer .disc{max-width:540px;text-transform:none;letter-spacing:0;font-family:'S
 .dd-divider{display:block;width:120px;height:14px;margin:18px 0;color:var(--ash)}
 
 /* hand-drawn annotation marks — wrap a phrase in <span class="dd-circle dd-red"> etc. */
-.dd-circle,.dd-box,.dd-underline{position:relative}
+.dd-circle,.dd-box{position:relative;white-space:nowrap}
 .dd-circle::before,.dd-box::before{content:"";position:absolute;border:2.5px solid var(--dd-color,var(--red));pointer-events:none}
 .dd-circle::before{inset:-.28em -.46em -.2em -.46em;border-radius:50% 46% 53% 47%/58% 49% 51% 44%;transform:rotate(-2deg)}
 .dd-box::before{inset:-.3em -.5em;border-radius:4px 9px 5px 10px/10px 5px 9px 4px;transform:rotate(-1deg)}
-.dd-underline::after{content:"";position:absolute;left:-3%;right:-3%;bottom:-.22em;height:.4em;border-bottom:3px solid var(--dd-color,var(--red));border-radius:0 0 50% 50%/0 0 100% 100%;transform:rotate(-1deg);pointer-events:none}
+.dd-underline{padding-bottom:.14em;border-bottom:3px solid var(--dd-color,var(--red));border-radius:0 0 40% 40%/0 0 65% 65%;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 
 .dd-red{--dd-color:var(--red)}
 .dd-blue{--dd-color:var(--blue)}
