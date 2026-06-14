@@ -265,6 +265,7 @@ details.index-row[open]>summary .go .arrow{transform:rotate(180deg)}
 .booknav .idx small{color:var(--ash)}
 .booknav a:hover span{text-decoration:underline}
 @media(max-width:680px){.booknav .wrap{flex-direction:column}.booknav .next{align-items:flex-start;text-align:left;margin-left:0}}
+.booknav.single .wrap{justify-content:center}
 
 /* ── conclusion ── */
 .concl{padding:84px 0;background:var(--navy);color:var(--paper)}
@@ -283,6 +284,8 @@ details.index-row[open]>summary .go .arrow{transform:rotate(180deg)}
 footer{border-top:2px solid var(--paper);background:var(--navy);color:#9b97a8;padding:30px 0}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase}
 footer .disc{max-width:540px;text-transform:none;letter-spacing:0;font-family:'Space Grotesk',sans-serif;font-style:italic;color:#a8a3ba;font-size:13px;line-height:1.7}
+footer .disc a{color:var(--yellow);font-style:normal;text-decoration:none}
+footer .disc a:hover{text-decoration:underline}
 
 .reveal{transition:opacity .7s ease,transform .7s ease}
 .reveal.pre{opacity:0;transform:translateY(14px)}
