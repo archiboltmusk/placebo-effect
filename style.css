@@ -172,6 +172,13 @@ tbody th{font-family:'Space Mono',monospace;font-size:11px;text-transform:upperc
 td{font-family:'Space Grotesk',sans-serif;font-weight:300;color:#33322c}
 tr:last-child td,tr:last-child th{border-bottom:none}
 
+/* ── bibliography ── */
+.biblio{list-style:none;counter-reset:ref;margin:24px 0;max-width:760px;border-top:1px solid var(--line)}
+.biblio li{counter-increment:ref;padding:16px 0 16px 40px;position:relative;border-bottom:1px solid var(--line);font-size:14px;line-height:1.65;color:#33322c;font-weight:300}
+.biblio li::before{content:"[" counter(ref) "]";position:absolute;left:0;top:16px;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--red)}
+.biblio a{color:var(--blue);word-break:break-all}
+.biblio .cited{display:inline-block;margin-top:8px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ash);border:1.5px solid var(--ash);padding:2px 8px}
+
 /* ── index / table of contents ── */
 .index-sec{padding:64px 0;border-bottom:2px solid var(--ink)}
 .index-sec h2{font-family:'Archivo Black',sans-serif;font-weight:900;font-size:clamp(30px,6vw,64px);line-height:1;text-transform:uppercase;margin-bottom:10px;letter-spacing:-.01em}
