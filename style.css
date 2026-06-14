@@ -8,6 +8,8 @@
   --navy:#15161f;
   --line:#d9d2c2;
   --ash:#6f6a5e;
+  --green:#5d7e4f;
+  --orange:#d9822b;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:76px}
@@ -259,3 +261,47 @@ footer .disc{max-width:540px;text-transform:none;letter-spacing:0;font-family:'S
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal.pre{opacity:1;transform:none}}
 ::selection{background:var(--yellow);color:var(--ink)}
+
+/* ── doodles ── */
+.dd-icon{display:inline-block;vertical-align:middle;flex-shrink:0;width:1em;height:1em;overflow:visible}
+.dd-icon.dd-sm{width:18px;height:18px}
+.dd-icon.dd-md{width:30px;height:30px}
+.dd-icon.dd-lg{width:46px;height:46px}
+.dd-icon.dd-red{color:var(--red)}
+.dd-icon.dd-blue{color:var(--blue)}
+.dd-icon.dd-yellow{color:var(--yellow)}
+.dd-icon.dd-navy{color:var(--navy)}
+.dd-icon.dd-green{color:var(--green)}
+.dd-icon.dd-orange{color:var(--orange)}
+.dd-icon.dd-ash{color:var(--ash)}
+
+.dd-divider{display:block;width:120px;height:14px;margin:18px 0;color:var(--ash)}
+
+/* hand-drawn annotation marks — wrap a phrase in <span class="dd-circle dd-red"> etc. */
+.dd-circle,.dd-box,.dd-underline{position:relative}
+.dd-circle::before,.dd-box::before{content:"";position:absolute;border:2.5px solid var(--dd-color,var(--red));pointer-events:none}
+.dd-circle::before{inset:-.28em -.46em -.2em -.46em;border-radius:50% 46% 53% 47%/58% 49% 51% 44%;transform:rotate(-2deg)}
+.dd-box::before{inset:-.3em -.5em;border-radius:4px 9px 5px 10px/10px 5px 9px 4px;transform:rotate(-1deg)}
+.dd-underline::after{content:"";position:absolute;left:-3%;right:-3%;bottom:-.22em;height:.4em;border-bottom:3px solid var(--dd-color,var(--red));border-radius:0 0 50% 50%/0 0 100% 100%;transform:rotate(-1deg);pointer-events:none}
+
+.dd-red{--dd-color:var(--red)}
+.dd-blue{--dd-color:var(--blue)}
+.dd-yellow{--dd-color:var(--yellow)}
+.dd-navy{--dd-color:var(--navy)}
+.dd-green{--dd-color:var(--green)}
+.dd-orange{--dd-color:var(--orange)}
+.dd-ash{--dd-color:var(--ash)}
+
+/* hand-drawn flow connectors */
+.flow .arr,.converge .conv-arr{
+  height:32px;width:38px;margin:2px 0 2px 16px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 32'%3E%3Cpath d='M19 2 C 12 8, 25 11, 18 17 C 11 23, 25 23, 19 28' fill='none' stroke='%23c0392b' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M10 22 L19 30 L28 21' fill='none' stroke='%23c0392b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center;
+}
+.flow .arr::after,.converge .conv-arr::after{content:none}
+.converge .conv-arr{margin:2px auto}
+
+/* subtle hand-drawn wobble on flowchart boxes */
+.flow .node,.converge .conv-node{transform:rotate(-.35deg)}
+.flow .node:nth-of-type(even),.converge .conv-node:nth-of-type(even){transform:rotate(.35deg)}
+.diagram,.pull{transform:rotate(-.25deg)}
+.chap ol.matrix li::before{border-radius:3px 7px 4px 8px}
