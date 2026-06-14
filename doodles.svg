@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+<defs>
+
+<symbol id="dd-star" viewBox="0 0 40 40">
+  <path d="M20 3 L24.5 15.5 L38 16 L27 24.5 L31 37 L20 29 L9 37 L13 24.5 L2 16 L15.5 15.5 Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+</symbol>
+
+<symbol id="dd-swirl" viewBox="0 0 40 40">
+  <path d="M7 27 C 2 17, 13 6, 24 11 C 35 16, 33 29, 22 29 C 13 29, 11 20, 18 18 C 22.5 16.5, 25 20.5, 21.5 22.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+</symbol>
+
+<symbol id="dd-arrow" viewBox="0 0 60 40">
+  <path d="M3 9 C 20 2, 39 7, 49 19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M38 13 L51 20 L41 28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<symbol id="dd-spark" viewBox="0 0 40 40">
+  <path d="M20 3 L20 16 M20 24 L20 37 M3 20 L16 20 M24 20 L37 20 M8 8 L16 16 M24 24 L32 32 M32 8 L24 16 M16 24 L8 32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+</symbol>
+
+<symbol id="dd-check" viewBox="0 0 40 40">
+  <path d="M5 21 L16 31 L36 6" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<symbol id="dd-mag" viewBox="0 0 40 40">
+  <circle cx="17" cy="17" r="11" fill="none" stroke="currentColor" stroke-width="2.5"/>
+  <path d="M25.5 25.5 L36 36" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+</symbol>
+
+<symbol id="dd-bang" viewBox="0 0 40 40">
+  <path d="M19 3 C 16.5 13, 17.5 22, 20 28" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="20.5" cy="35.5" r="2.4" fill="currentColor"/>
+</symbol>
+
+<symbol id="dd-arrowdown" viewBox="0 0 40 50">
+  <path d="M19 2 C 13 12, 26 16, 18 26 C 11 35, 25 36, 19 44" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M9 36 L19 47 L29 35" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<symbol id="dd-scribble" viewBox="0 0 200 16">
+  <path d="M2 8 C 14 2, 26 14, 38 8 C 50 2, 62 14, 74 8 C 86 2, 98 14, 110 8 C 122 2, 134 14, 146 8 C 158 2, 170 14, 182 8 C 190 5, 196 9, 198 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+</symbol>
+
+</defs>
+</svg>
