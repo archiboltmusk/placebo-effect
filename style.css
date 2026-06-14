@@ -79,6 +79,7 @@ body{
 .part-head h2{font-family:'Archivo Black',sans-serif;font-weight:900;font-size:clamp(28px,5vw,52px);line-height:1;letter-spacing:-.01em;text-transform:uppercase}
 .chap{display:grid;grid-template-columns:88px 1fr;gap:0 28px;padding:30px 0;border-top:2px solid var(--line)}
 .chap:first-of-type{border-top:none}
+.chap>div{min-width:0}
 .chap .cnum{font-family:'Space Mono',monospace;font-size:12px;color:var(--red);letter-spacing:.08em;padding-top:6px;font-weight:700}
 .chap h3{font-family:'Archivo Black',sans-serif;font-weight:900;font-size:clamp(22px,3vw,32px);line-height:1.12;letter-spacing:-.01em;margin-bottom:14px;text-transform:uppercase}
 .chap p{font-weight:300;color:#33322c;max-width:680px}
