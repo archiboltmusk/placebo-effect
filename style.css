@@ -10,7 +10,7 @@
   --ash:#6f6a5e;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
 body{
   background-color:var(--paper);
   background-image:
@@ -66,55 +66,11 @@ body{
 .figure{margin:30px 0 8px;max-width:680px}
 .fig-caption{font-family:'Space Grotesk',sans-serif;font-style:italic;font-size:14px;color:var(--ash);margin-top:10px;max-width:680px}
 
-/* ── colophon / imprint page ── */
-.colophon{border:2px solid var(--ink);background:var(--card);max-width:680px;margin:28px 0;padding:32px}
-.colophon .col-title{font-family:'Archivo Black',sans-serif;font-weight:900;font-size:22px;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:4px}
-.colophon .col-sub{font-family:'Space Grotesk',sans-serif;font-style:italic;font-weight:400;font-size:15px;color:var(--ash);margin-bottom:20px}
-.colophon p{font-family:'Space Mono',monospace;font-size:12.5px;line-height:1.8;color:#403d35;margin-bottom:14px;max-width:none}
-.colophon p:last-child{margin-bottom:0}
-.colophon .col-isbn{color:var(--blue)}
-
-/* ── duel (two-sided dark section) ── */
-.duel{border-bottom:2px solid var(--ink);background:var(--navy);color:var(--paper)}
-.duel .wrap{padding:64px 28px}
-.duel .kicker{color:var(--yellow)}
-.duel h2{font-family:'Archivo Black',sans-serif;font-weight:900;font-size:clamp(28px,5vw,52px);line-height:1.05;text-transform:uppercase;margin-bottom:40px;letter-spacing:-.01em}
-.duel-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.duel-card{border:2px dashed #4a4a55;padding:28px;display:flex;flex-direction:column;gap:14px}
-.duel-card.highlight{border:2px solid var(--yellow)}
-.duel-tag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9b97a8}
-.duel-card.highlight .duel-tag{color:var(--yellow)}
-.duel-card h3{font-family:'Archivo Black',sans-serif;font-weight:900;font-size:clamp(20px,2.6vw,28px);line-height:1.15;text-transform:none}
-.duel-card p{font-weight:300;font-size:16px;line-height:1.55;color:#cfc9bd}
-.duel-card.highlight p{color:#f3e9c8}
-.duel-closer{border-top:1px solid #2a2a35;padding-top:28px;margin-top:36px;font-family:'Space Grotesk',sans-serif;font-style:italic;font-size:20px;color:var(--paper)}
-@media(max-width:720px){.duel-grid{grid-template-columns:1fr}}
-
 /* ── thesis ── */
 .thesis{padding:64px 0;border-bottom:2px solid var(--ink)}
 .thesis .kicker{margin-bottom:22px}
 .thesis .lead{font-family:'Space Grotesk',sans-serif;font-weight:400;font-size:clamp(23px,3.6vw,36px);line-height:1.32;letter-spacing:-.005em;max-width:920px}
 .thesis .lead b{font-weight:700}
-.thesis-grid{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--ink);margin-top:40px}
-.thesis-col{padding:20px 22px;border-right:1px solid var(--line)}
-.thesis-col:last-child{border-right:none}
-.thesis-tag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:8px;font-weight:700}
-.thesis-col p{font-family:'Space Grotesk',sans-serif;font-weight:300;font-size:14px;line-height:1.5;color:#33322c;max-width:none}
-.thesis-col.risk{background:var(--red);color:#fff}
-.thesis-col.risk .thesis-tag{color:#ffd9d3}
-.thesis-col.risk p{color:#ffe8e4}
-@media(max-width:860px){
-  .thesis-grid{grid-template-columns:repeat(2,1fr)}
-  .thesis-col{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .thesis-col:nth-child(2n){border-right:none}
-  .thesis-col:nth-child(3),.thesis-col:nth-child(4){border-bottom:none}
-}
-@media(max-width:560px){
-  .thesis-grid{grid-template-columns:1fr}
-  .thesis-col{border-right:none;border-bottom:1px solid var(--line)}
-  .thesis-col:nth-child(3),.thesis-col:nth-child(4){border-bottom:1px solid var(--line)}
-  .thesis-col:last-child{border-bottom:none}
-}
 
 /* ── parts ── */
 .part{border-bottom:2px solid var(--ink);padding:64px 0}
@@ -231,12 +187,6 @@ details.index-row[open]>summary .go .arrow{transform:rotate(180deg)}
 .index-outline{padding:0 0 32px 94px;max-width:760px}
 .index-outline p{font-weight:300;color:#33322c;font-size:15px;line-height:1.6;margin-bottom:14px}
 .index-outline p:last-child{margin-bottom:0}
-.index-outline ul{list-style:none;margin:8px 0 16px}
-.index-outline li{padding-left:20px;position:relative;margin-bottom:10px;font-weight:300;color:#33322c;font-size:15px;line-height:1.5}
-.index-outline li::before{content:"—";position:absolute;left:0;color:var(--red)}
-.index-outline li b{font-weight:700;color:var(--ink)}
-.index-outline h4{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin:18px 0 10px;font-weight:700}
-.index-outline .flow,.index-outline .pull,.index-outline .colophon{margin-top:18px}
 
 @media(max-width:600px){
   a.index-row,details.index-row>summary{grid-template-columns:1fr}
