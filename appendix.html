@@ -11,13 +11,15 @@
 </head>
 <body>
 
+<div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+
 <div class="topbar">
   <div class="wrap">
     <a class="brand" href="index.html">The Placebo Economy</a>
     <nav>
       <a href="index.html#index">Contents</a>
     </nav>
-    <a class="cta" href="index.html#index">Full Index →</a>
+    <a class="cta" href="index.html#index"><span class="cta-full">Full Index →</span><span class="cta-short">Index →</span></a>
   </div>
 </div>
 
@@ -147,6 +149,15 @@
 </footer>
 
 <script>
+const progressFill=document.getElementById('progress-fill');
+function updateProgress(){
+  const d=document.documentElement;
+  const scrollable=d.scrollHeight-d.clientHeight;
+  progressFill.style.transform='scaleX('+(scrollable>0?(d.scrollTop/scrollable):0)+')';
+}
+window.addEventListener('scroll',updateProgress,{passive:true});
+updateProgress();
+
 document.querySelectorAll('.reveal').forEach(el=>el.classList.add('pre'));
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('pre');e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
