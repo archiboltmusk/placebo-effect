@@ -56,8 +56,11 @@ body{
 .hero h1{font-family:'Archivo Black',sans-serif;font-weight:900;font-size:clamp(40px,9vw,104px);line-height:.98;letter-spacing:-.01em;margin-bottom:24px;text-transform:uppercase}
 .hero .sub{font-family:'Space Grotesk',sans-serif;font-weight:400;font-size:clamp(17px,2.1vw,22px);line-height:1.5;max-width:680px;color:#33322c;margin-bottom:18px}
 .hero .tagline{font-family:'Space Mono',monospace;font-size:13px;color:var(--blue);margin-bottom:34px}
-.hero .meta{margin-top:38px;display:flex;gap:36px;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ash)}
-.hero .meta b{color:var(--ink);display:block;font-size:13px;margin-top:3px;font-weight:700}
+.hero .meta{margin-top:38px;display:grid;grid-template-columns:repeat(3,1fr);border:2px solid var(--ink);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ash)}
+.hero .meta>div{padding:16px 22px;border-left:1px solid var(--line)}
+.hero .meta>div:first-child{border-left:none}
+.hero .meta b{color:var(--ink);display:block;font-size:14px;margin-top:6px;font-weight:700;letter-spacing:.02em}
+@media(max-width:720px){.hero .meta{grid-template-columns:1fr}.hero .meta>div{border-left:none;border-top:1px solid var(--line);padding:14px 20px}.hero .meta>div:first-child{border-top:none}}
 
 /* ── figure / diagram card ── */
 .figure{margin:30px 0 8px;max-width:680px}
@@ -89,8 +92,29 @@ body{
 
 /* ── thesis ── */
 .thesis{padding:64px 0;border-bottom:2px solid var(--ink)}
+.thesis .kicker{margin-bottom:22px}
 .thesis .lead{font-family:'Space Grotesk',sans-serif;font-weight:400;font-size:clamp(23px,3.6vw,36px);line-height:1.32;letter-spacing:-.005em;max-width:920px}
 .thesis .lead b{font-weight:700}
+.thesis-grid{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--ink);margin-top:40px}
+.thesis-col{padding:20px 22px;border-right:1px solid var(--line)}
+.thesis-col:last-child{border-right:none}
+.thesis-tag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:8px;font-weight:700}
+.thesis-col p{font-family:'Space Grotesk',sans-serif;font-weight:300;font-size:14px;line-height:1.5;color:#33322c;max-width:none}
+.thesis-col.risk{background:var(--red);color:#fff}
+.thesis-col.risk .thesis-tag{color:#ffd9d3}
+.thesis-col.risk p{color:#ffe8e4}
+@media(max-width:860px){
+  .thesis-grid{grid-template-columns:repeat(2,1fr)}
+  .thesis-col{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .thesis-col:nth-child(2n){border-right:none}
+  .thesis-col:nth-child(3),.thesis-col:nth-child(4){border-bottom:none}
+}
+@media(max-width:560px){
+  .thesis-grid{grid-template-columns:1fr}
+  .thesis-col{border-right:none;border-bottom:1px solid var(--line)}
+  .thesis-col:nth-child(3),.thesis-col:nth-child(4){border-bottom:1px solid var(--line)}
+  .thesis-col:last-child{border-bottom:none}
+}
 
 /* ── parts ── */
 .part{border-bottom:2px solid var(--ink);padding:64px 0}
@@ -183,6 +207,8 @@ tr:last-child td,tr:last-child th{border-bottom:none}
 .index-sec h2{font-family:'Archivo Black',sans-serif;font-weight:900;font-size:clamp(30px,6vw,64px);line-height:1;text-transform:uppercase;margin-bottom:10px;letter-spacing:-.01em}
 .index-sec .index-dek{font-family:'Space Grotesk',sans-serif;font-weight:300;font-size:18px;color:#33322c;max-width:640px;margin-bottom:36px}
 .index-list{border-top:2px solid var(--ink)}
+.index-group{padding:28px 0 6px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ash)}
+.index-group b{color:var(--red);font-weight:700;margin-right:10px}
 .index-row{display:grid;grid-template-columns:70px 1fr auto;align-items:start;gap:0 24px;padding:26px 0;border-bottom:2px solid var(--ink);text-decoration:none;color:inherit;transition:background .15s ease}
 .index-row:hover{background:var(--card)}
 .index-row .idx-num{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--red);padding-top:6px}
@@ -192,8 +218,8 @@ tr:last-child td,tr:last-child th{border-bottom:none}
 .index-row .go{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);white-space:nowrap;padding-top:8px;transition:transform .2s ease}
 .index-row:hover .go{transform:translateX(4px)}
 .status{display:inline-block;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor}
-.status.done{color:var(--blue)}
-.status.outline{color:var(--ash)}
+.status.done{color:#fff;background:var(--blue);border-color:var(--blue)}
+.status.outline{color:var(--ash);border-style:dashed;border-color:var(--ash)}
 @media(max-width:600px){.index-row{grid-template-columns:1fr}.index-row .go{padding-top:0}}
 
 /* ── chapter page header ── */
