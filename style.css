@@ -13,6 +13,7 @@
   --orange:#d9822b;
 }
 *{margin:0;padding:0;box-sizing:border-box}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--red);outline-offset:2px}
 html{scroll-behavior:smooth;scroll-padding-top:76px}
 body{
   background-color:var(--paper);
