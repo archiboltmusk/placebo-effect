@@ -284,6 +284,8 @@ details.index-row[open]>summary .go .arrow{transform:rotate(180deg)}
 .concl .chap li b,.concl .chap ol.matrix li b{color:var(--paper)}
 .concl .chap .diagram .flow .node{color:var(--ink)}
 .concl .chap .diagram .flow .node.risk{color:#fff}
+.concl .chap .converge .conv-node{color:var(--ink)}
+.concl .chap .converge .conv-node.main{color:#fff}
 
 /* ── footer ── */
 footer{border-top:2px solid var(--paper);background:var(--navy);color:#9b97a8;padding:30px 0}
