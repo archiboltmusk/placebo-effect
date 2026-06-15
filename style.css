@@ -232,11 +232,6 @@ details.index-row>summary:hover{background:var(--card)}
 a.index-row:hover .go{transform:translateX(4px)}
 .index-row .go .arrow{display:inline-block;margin-left:4px;transition:transform .2s ease}
 details.index-row[open]>summary .go .arrow{transform:rotate(180deg)}
-.status{display:inline-block;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor}
-.status.done{color:#fff;background:var(--blue);border-color:var(--blue)}
-.status.outline{color:var(--ash);border-style:dashed;border-color:var(--ash)}
-.index-row h3 .status{align-self:flex-start}
-
 /* ── outline dropdown body ── */
 .index-outline{padding:0 0 32px 94px;max-width:760px}
 .index-outline p{font-weight:300;color:var(--text);font-size:15px;line-height:1.6;margin-bottom:14px}
