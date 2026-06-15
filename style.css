@@ -266,6 +266,17 @@ details.index-row[open]>summary .go .arrow{transform:rotate(180deg)}
 @media(max-width:680px){.booknav .wrap{flex-direction:column}.booknav .next{align-items:flex-start;text-align:left;margin-left:0}}
 .booknav.single .wrap{justify-content:center}
 
+/* ── chapter jump strip ── */
+.jumpnav{display:flex;flex-wrap:wrap;align-items:center;gap:8px;flex-basis:100%;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.jumpnav .jump-label{margin-right:4px}
+.jumpnav a.jump-item,.jumpnav .current{
+  font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.04em;
+  display:inline-block;max-width:none;min-width:30px;text-align:center;
+  color:var(--ink);border:1.5px solid var(--ink);padding:6px 10px;text-decoration:none;
+}
+.jumpnav a.jump-item:hover{background:var(--ink);color:var(--paper)}
+.jumpnav .current{background:var(--red);color:#fff;border-color:var(--red)}
+
 /* ── conclusion ── */
 .concl{padding:84px 0;background:var(--navy);color:var(--paper)}
 .concl .tag{font-family:'Space Mono',monospace;font-size:13px;color:var(--red);margin-bottom:26px}
