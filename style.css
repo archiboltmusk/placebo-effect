@@ -282,6 +282,7 @@ details.index-row[open]>summary .go .arrow{transform:rotate(180deg)}
 .concl .chap .cnum{color:#8d8878}
 .concl .chap li,.concl .chap ol.matrix li{color:#cfc9bd}
 .concl .chap li b,.concl .chap ol.matrix li b{color:var(--paper)}
+.concl .chap .separation li{color:var(--text)}
 .concl .chap .diagram .flow .node{color:var(--ink)}
 .concl .chap .diagram .flow .node.risk{color:#fff}
 .concl .chap .converge .conv-node{color:var(--ink)}
