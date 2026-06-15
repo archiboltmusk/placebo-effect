@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="India isn't short of allopathic doctors — it is structurally hostile to them. How compulsory service bonds, brutal residency shifts, and workplace violence are driving the migration the press keeps mislabelling as betrayal.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23f1ece1'/%3E%3Cpath d='M20 3 L20 16 M20 24 L20 37 M3 20 L16 20 M24 20 L37 20 M8 8 L16 16 M24 24 L32 32 M32 8 L24 16 M16 24 L8 32' stroke='%23c0392b' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chapter 9: The Disposable Physician · The Placebo Economy">
+<meta property="og:description" content="India isn't short of allopathic doctors — it is structurally hostile to them. How compulsory service bonds, brutal residency shifts, and workplace violence are driving the migration the press keeps mislabelling as betrayal.">
+<meta name="twitter:card" content="summary">
+<title>Chapter 9: The Disposable Physician · The Placebo Economy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f3f0e9;
+    --ink:#171512;
+    --blood:#7c2018;
+    --blood-bright:#a62a1d;
+    --rule:#c9c2b3;
+    --rule-dark:#3a352d;
+    --amber:#b8861b;
+    --mute:#6b655a;
+    --chart-bg:#e7e2d6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Newsreader',Georgia,serif;
+    font-size:19px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--blood);color:var(--paper)}
+
+  .mono{font-family:'IBM Plex Mono',monospace}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+  .narrow{max-width:680px;margin:0 auto;padding:0 28px}
+
+  /* ===== PROGRESS BAR ===== */
+  .progress-track{position:fixed;top:0;left:0;width:100%;height:3px;background:var(--rule);z-index:200}
+  .progress-fill{height:100%;width:100%;background:var(--blood);transform-origin:left;transform:scaleX(0)}
+
+  /* ===== MASTHEAD ===== */
+  header.mast{
+    border-bottom:2px solid var(--ink);
+    padding-top:18px;
+  }
+  .mast-top{
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--mute);padding-bottom:14px;
+    border-bottom:1px solid var(--rule);
+  }
+  .mast-top a{color:inherit;text-decoration:none}
+  .mast-top a:hover{color:var(--blood)}
+  .mast-top .edition{color:var(--blood)}
+
+  /* ===== HERO ===== */
+  .hero{padding:64px 0 54px}
+  .kicker{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--blood);margin-bottom:26px;
+    display:flex;align-items:center;gap:14px;
+  }
+  .kicker::before{content:"";width:34px;height:2px;background:var(--blood)}
+  .hero h1{
+    font-weight:500;
+    font-size:clamp(3rem,9vw,6.4rem);
+    line-height:.96;
+    letter-spacing:-.025em;
+    margin-bottom:30px;
+  }
+  .hero h1 em{font-style:italic;color:var(--blood);font-weight:400}
+  .dek{
+    font-size:clamp(1.25rem,2.6vw,1.7rem);
+    line-height:1.42;
+    max-width:760px;
+    color:#34302a;
+    font-weight:300;
+  }
+  .byline{
+    margin-top:38px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;letter-spacing:.06em;color:var(--mute);
+    border-top:1px solid var(--rule);padding-top:16px;
+    max-width:760px;
+  }
+
+  /* ===== THESIS BAND ===== */
+  .thesis{
+    background:var(--ink);color:var(--paper);
+    padding:78px 0;
+  }
+  .thesis .narrow{max-width:780px}
+  .thesis .lie{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--amber);margin-bottom:24px;
+  }
+  .thesis p{
+    font-size:clamp(1.5rem,3.4vw,2.2rem);
+    line-height:1.32;font-weight:300;
+  }
+  .thesis .strike{
+    color:#7d776c;text-decoration:line-through;text-decoration-color:var(--blood-bright);
+    text-decoration-thickness:2px;
+  }
+  .thesis .truth{color:var(--paper);font-weight:500;font-style:italic}
+
+  /* ===== STAT STRIP ===== */
+  .stats{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    border-top:2px solid var(--ink);border-bottom:1px solid var(--rule);
+  }
+  .stat{padding:40px 26px;border-right:1px solid var(--rule)}
+  .stat:last-child{border-right:none}
+  .stat .num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:clamp(2.1rem,4.5vw,3.1rem);
+    color:var(--blood);font-weight:500;line-height:1;
+    letter-spacing:-.02em;
+  }
+  .stat .lbl{
+    margin-top:14px;font-size:15px;line-height:1.4;color:#36322b;
+  }
+  .stat .src{
+    margin-top:10px;font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;letter-spacing:.05em;color:var(--mute);text-transform:uppercase;
+  }
+
+  /* ===== SECTIONS ===== */
+  section.chapter{padding:80px 0 30px}
+  .chapter-head{
+    display:flex;gap:22px;align-items:flex-start;
+    border-bottom:1px solid var(--rule);padding-bottom:22px;margin-bottom:42px;
+  }
+  .chapter-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;font-weight:600;color:var(--blood);
+    border:1.5px solid var(--blood);border-radius:50%;
+    width:42px;height:42px;flex:0 0 42px;
+    display:flex;align-items:center;justify-content:center;
+    margin-top:6px;
+  }
+  .chapter-head h2{
+    font-weight:500;font-size:clamp(1.9rem,4.2vw,2.9rem);
+    line-height:1.05;letter-spacing:-.02em;
+  }
+  .chapter-head .sub{
+    margin-top:8px;font-family:'IBM Plex Mono',monospace;
+    font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);
+  }
+  .body-col{max-width:680px}
+  .body-col p{margin-bottom:22px}
+  .body-col p .lead{font-weight:600}
+  .term{
+    color:var(--blood);font-weight:600;font-style:italic;
+  }
+
+  /* pull definition block */
+  .define{
+    border-left:3px solid var(--blood);
+    background:rgba(124,32,24,.04);
+    padding:18px 24px;margin:30px 0;
+  }
+  .define .t{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--blood);margin-bottom:8px;
+  }
+  .define p{margin:0;font-size:18px}
+
+  /* penalty figure */
+  .penalty{
+    margin:34px 0;border:1px solid var(--rule-dark);
+  }
+  .penalty .ph{
+    background:var(--ink);color:var(--paper);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;
+    letter-spacing:.2em;text-transform:uppercase;padding:12px 18px;
+    display:flex;justify-content:space-between;
+  }
+  .penalty .ph span:last-child{color:var(--amber)}
+  .penalty .pb{padding:22px 18px;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+  .penalty .rng{font-family:'IBM Plex Mono',monospace;font-size:clamp(1.6rem,4vw,2.4rem);color:var(--blood);font-weight:600}
+  .penalty .cap{font-size:14px;color:var(--mute);font-family:'IBM Plex Mono',monospace}
+
+  /* ===== FLOW DIAGRAM (Resident crisis) ===== */
+  .flow{margin:40px 0;background:var(--chart-bg);border:1px solid var(--rule);padding:34px 28px}
+  .flow .title{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:26px;text-align:center}
+  .flow-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px}
+  .node{
+    border:1.5px solid var(--ink);background:var(--paper);
+    padding:14px 16px;font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;line-height:1.45;letter-spacing:.02em;text-align:center;
+  }
+  .node.crisis{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .node.out{border-color:var(--blood);color:var(--blood)}
+  .arrow{font-family:'IBM Plex Mono',monospace;color:var(--blood);font-size:20px;text-align:center}
+  .outs{display:flex;flex-direction:column;gap:12px}
+
+  /* ===== HOURS BAR CHART ===== */
+  .chart{margin:44px 0;border:1px solid var(--rule);background:var(--chart-bg);padding:32px 28px 24px}
+  .chart .ct{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+  .chart .cs{font-size:14px;color:var(--mute);margin-bottom:28px}
+  .bar-row{display:grid;grid-template-columns:130px 1fr;align-items:center;gap:16px;margin-bottom:18px}
+  .bar-row .bl{font-family:'IBM Plex Mono',monospace;font-size:12px;text-align:right;line-height:1.3}
+  .bar-track{position:relative;height:30px;background:rgba(0,0,0,.05)}
+  .bar-fill{height:100%;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--paper);font-weight:500}
+  .bar-fill.safe{background:#5a7d5a}
+  .bar-fill.bad{background:var(--blood)}
+  .chart .note{margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--mute);letter-spacing:.04em}
+
+  /* ===== BRAIN DRAIN REFRAME ===== */
+  .reframe{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:40px 0;border:1px solid var(--rule-dark)}
+  .reframe>div{padding:28px 26px}
+  .reframe .narr{background:var(--paper);border-right:1px solid var(--rule-dark)}
+  .reframe .real{background:var(--ink);color:var(--paper)}
+  .reframe .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}
+  .reframe .narr .tag{color:var(--mute)}
+  .reframe .real .tag{color:var(--amber)}
+  .reframe h4{font-weight:500;font-size:1.35rem;line-height:1.2;margin-bottom:12px}
+  .reframe p{font-size:16px;line-height:1.5;margin:0}
+  .reframe .narr p{color:#4a453d}
+
+  /* ===== VERDICT ===== */
+  .verdict{background:var(--blood);color:var(--paper);padding:90px 0}
+  .verdict .narrow{max-width:820px}
+  .verdict .v-kick{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:rgba(243,240,233,.6);margin-bottom:30px}
+  .verdict blockquote{font-size:clamp(1.4rem,3vw,1.95rem);line-height:1.4;font-weight:300;font-style:italic}
+  .verdict blockquote strong{font-weight:600;font-style:normal}
+  .demands{margin-top:52px;border-top:1px solid rgba(243,240,233,.25);padding-top:36px}
+  .demands .dh{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:26px}
+  .demand{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid rgba(243,240,233,.2)}
+  .demand .dn{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;opacity:.7;flex:0 0 34px}
+  .demand .dt{font-size:18px;line-height:1.4}
+  .demand .dt b{font-weight:600}
+
+  /* ===== BOOK NAV ===== */
+  .booknav{border-top:2px solid var(--ink);background:var(--chart-bg)}
+  .booknav .wrap{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;padding:36px 28px}
+  .booknav a{text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:6px;max-width:300px}
+  .booknav small{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--blood)}
+  .booknav span{font-family:'Newsreader',serif;font-size:18px;font-weight:500;letter-spacing:-.005em;line-height:1.3}
+  .booknav .next{text-align:right;align-items:flex-end;margin-left:auto}
+  .booknav .idx{align-items:center;text-align:center}
+  .booknav .idx small{color:var(--mute)}
+  .booknav a:hover span{text-decoration:underline}
+  @media(max-width:760px){.booknav .wrap{flex-direction:column}.booknav .next{align-items:flex-start;text-align:left;margin-left:0}}
+
+  /* chapter jump strip */
+  .jumpnav{display:flex;flex-wrap:wrap;align-items:center;gap:8px;flex-basis:100%;padding-bottom:24px;border-bottom:1px solid var(--rule)}
+  .jumpnav .jump-label{margin-right:4px}
+  .jumpnav a.jump-item,.jumpnav .current{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.04em;
+    display:inline-block;min-width:30px;text-align:center;
+    color:var(--ink);border:1.5px solid var(--ink);padding:6px 10px;text-decoration:none;
+  }
+  .jumpnav a.jump-item:hover{background:var(--ink);color:var(--paper)}
+  .jumpnav .current{background:var(--blood);color:var(--paper);border-color:var(--blood)}
+
+  /* ===== FOOTER ===== */
+  footer{padding:54px 0;border-top:2px solid var(--ink)}
+  footer .fgrid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+  footer .disc{max-width:560px;font-size:14px;line-height:1.5;color:var(--mute)}
+  footer .disc strong{color:var(--ink)}
+  footer .colophon{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--mute);text-transform:uppercase;text-align:right;line-height:1.8}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:760px){
+    body{font-size:18px}
+    .stats{grid-template-columns:1fr}
+    .stat{border-right:none;border-bottom:1px solid var(--rule)}
+    .stat:last-child{border-bottom:none}
+    .flow-grid{grid-template-columns:1fr;gap:10px}
+    .arrow{transform:rotate(90deg)}
+    .reframe{grid-template-columns:1fr}
+    .reframe .narr{border-right:none;border-bottom:1px solid var(--rule-dark)}
+    .chapter-head{gap:14px}
+    .bar-row{grid-template-columns:90px 1fr;gap:10px}
+  }
+  @media(prefers-reduced-motion:no-preference){
+    .fade{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+    .fade.in{opacity:1;transform:none}
+  }
+  a{color:var(--blood)}
+</style>
+</head>
+<body>
+
+<div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="mast-top">
+      <a href="index.html">The Placebo Economy — Field Dispatch</a>
+      <span class="edition">Ch. 09 / Medical Manpower</span>
+      <span>India · 2026</span>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="hero">
+      <div class="kicker">A structural critique</div>
+      <h1>The state breaks its <em>real doctors</em> to make room for placeholders.</h1>
+      <p class="dek">India is not short of allopathic doctors. It is structurally hostile to them — and the collapse of the public health grid is the predictable result.</p>
+      <p class="byline">An investigative argument on compulsory bonds, sleepless residencies, workplace violence, and the migration the press keeps mislabelling as betrayal.</p>
+    </div>
+  </div>
+</header>
+
+<!-- THESIS -->
+<div class="thesis">
+  <div class="narrow fade">
+    <div class="lie">The calculated lie</div>
+    <p>"India suffers from a <span class="strike">shortage of allopathic doctors</span>."<br><br>The truth: India suffers from a <span class="truth">profound, systematic hostility</span> toward the biomedical minds it trained.</p>
+  </div>
+</div>
+
+<!-- STATS — flagged as uncertain -->
+<div class="wrap">
+  <div class="stats fade">
+    <div class="stat">
+      <div class="num">₹10–40 L</div>
+      <div class="lbl">Penalty range cited for breaking compulsory service bonds in states such as Punjab, Bihar &amp; Haryana.</div>
+      <div class="src">Figures from source manuscript — verify against state notifications</div>
+    </div>
+    <div class="stat">
+      <div class="num">36–48 hr</div>
+      <div class="lbl">Continuous shifts routinely worked by junior residents covering chronic frontline shortages.</div>
+      <div class="src">Claim per manuscript — not independently confirmed</div>
+    </div>
+    <div class="stat">
+      <div class="num">Below min.</div>
+      <div class="lbl">Resident stipends described as stagnant or below a Grade-I Medical Officer's standard.</div>
+      <div class="src">Directional claim — confirm current state pay scales</div>
+    </div>
+  </div>
+</div>
+
+<!-- CH 1 -->
+<section class="chapter">
+  <div class="wrap">
+    <div class="chapter-head fade">
+      <div class="chapter-num">01</div>
+      <div>
+        <h2>The "Bond-Age" System</h2>
+        <div class="sub">State-sanctioned indentured labour</div>
+      </div>
+    </div>
+    <div class="body-col fade">
+      <p><span class="lead">An engineering or management graduate enters the open market the day they graduate.</span> The allopathic medical graduate walks into a different arrangement entirely: the compulsory service bond.</p>
+      <div class="define">
+        <div class="t">The debt trap</div>
+        <p>Young MBBS and postgraduate residents are reported to sign coercive tripartite agreements with banks and government. Refuse a multi-year, poorly managed rural posting, and the penalty is framed as crushing.</p>
+      </div>
+      <div class="penalty">
+        <div class="ph"><span>Bond default penalty</span><span>Punjab · Bihar · Haryana</span></div>
+        <div class="pb"><span class="rng">₹10L → ₹40L</span><span class="cap">// per manuscript — verify against each state's order</span></div>
+      </div>
+      <p><span class="term">The academic interruption.</span> These bond periods are timed to collide with the most critical academic window of a young doctor's life — the formative years needed to prepare for super-specialty exams.</p>
+      <p><span class="term">The infrastructure lie.</span> Specialists are dropped into Primary Health Centres without running water, electricity, diagnostic labs, or essential drugs. The doctor cannot practise medicine. They function instead as a bureaucratic shield, absorbing a community's anger over the state's own failure to build.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CH 2 -->
+<section class="chapter">
+  <div class="wrap">
+    <div class="chapter-head fade">
+      <div class="chapter-num">02</div>
+      <div>
+        <h2>Extreme workloads, frozen stipends</h2>
+        <div class="sub">Engineered understaffing</div>
+      </div>
+    </div>
+    <div class="body-col fade">
+      <p><span class="lead">Understaffing here is not an accident — it reads as a design.</span> Keep the public system thin, and the residents who remain absorb the deficit with their bodies.</p>
+    </div>
+
+    <div class="flow fade">
+      <div class="title">The resident crisis — how the deficit converts into burnout</div>
+      <div class="flow-grid">
+        <div class="node">Chronic understaffing&nbsp;+ delayed NEET-PG counselling</div>
+        <div class="arrow">→</div>
+        <div class="outs">
+          <div class="node out">36–48 hr continuous shifts</div>
+          <div class="node out">Stagnant, below-market stipends</div>
+          <div class="node out">Severe mental &amp; physical burnout</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart fade">
+      <div class="ct">Shift length — illustrative</div>
+      <div class="cs">A safe-practice ceiling against the shifts the manuscript describes. Values are illustrative, not survey data — treat as a comparison, not a measured statistic.</div>
+      <div class="bar-row">
+        <div class="bl">Safe-practice<br>guideline</div>
+        <div class="bar-track"><div class="bar-fill safe" style="width:25%">~12 hr</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bl">Reported<br>resident shift</div>
+        <div class="bar-track"><div class="bar-fill bad" style="width:100%">36–48 hr</div></div>
+      </div>
+      <div class="note">// Bar widths are schematic. Verify against any duty-hour study before citing.</div>
+    </div>
+
+    <div class="body-col fade">
+      <p><span class="term">The financial irony.</span> The people carrying tertiary healthcare on their backs are paid least at the moment their load peaks — pushed into deep financial vulnerability precisely when the system extracts the most from them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CH 3 -->
+<section class="chapter">
+  <div class="wrap">
+    <div class="chapter-head fade">
+      <div class="chapter-num">03</div>
+      <div>
+        <h2>Violence as a release valve</h2>
+        <div class="sub">Zero workplace security</div>
+      </div>
+    </div>
+    <div class="body-col fade">
+      <p><span class="lead">When a patient dies in an underfunded ICU</span> — no oxygen, no working ventilator, no emergency drugs — the state faces no accountability. The grieving family's anger has nowhere to land except on the nearest visible representative of the system.</p>
+      <div class="define">
+        <div class="t">The scapegoat dynamic</div>
+        <p>That representative is the sleep-deprived junior resident. Assaults, vandalism inside emergency wards, and mob violence are described as routine operational hazards.</p>
+      </div>
+      <p><span class="term">The institutional gaslighting.</span> When doctors strike for basic measures — working CCTV, restricted entry, armed security — administrations are reported to answer with suspension threats, hostel eviction, and the invocation of essential-services acts. The demand is total, silent submission under lethal conditions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CH 4 -->
+<section class="chapter">
+  <div class="wrap">
+    <div class="chapter-head fade">
+      <div class="chapter-num">04</div>
+      <div>
+        <h2>Brain drain is a survival strategy</h2>
+        <div class="sub">Flipping the patriotism narrative</div>
+      </div>
+    </div>
+    <div class="body-col fade">
+      <p><span class="lead">The press frames the exodus as a lack of patriotism.</span> The manuscript's argument inverts it: leaving is not betrayal — it is a logical, life-saving migration.</p>
+    </div>
+
+    <div class="reframe fade">
+      <div class="narr">
+        <div class="tag">The official framing</div>
+        <h4>"Our brightest abandon the nation."</h4>
+        <p>Departure to the US, UK or Gulf the moment a degree clears is read as disloyalty — a moral failing of the individual doctor.</p>
+      </div>
+      <div class="real">
+        <div class="tag">The structural reading</div>
+        <h4>A refusal to be extorted.</h4>
+        <p>They leave to escape coercive bonds, 80-hour weeks without sleep, and assault on the hospital floor — while wellness cartels and unqualified placeholders draw state protection.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERDICT -->
+<div class="verdict">
+  <div class="narrow fade">
+    <div class="v-kick">The manifesto verdict</div>
+    <blockquote>The placeholder economy survives by <strong>cannibalising its best minds.</strong> The state uses coercive bonds and early-career debt to trap genuine graduates in broken clinics, while forcing tertiary residents into brutal, sleepless shifts under constant threat of violence. If you want a scientifically sound nation, stop treating your life-savers like indentured state property.</blockquote>
+
+    <div class="demands">
+      <div class="dh">This platform demands</div>
+      <div class="demand"><div class="dn">D1</div><div class="dt">The absolute <b>abolition of predatory service bonds.</b></div></div>
+      <div class="demand"><div class="dn">D2</div><div class="dt">Strict legal <b>enforcement of safe working hours</b> for resident physicians.</div></div>
+      <div class="demand"><div class="dn">D3</div><div class="dt"><b>Ironclad institutional security</b> inside every public hospital.</div></div>
+    </div>
+  </div>
+</div>
+
+<nav class="booknav">
+  <div class="wrap">
+    <div class="jumpnav">
+      <small class="jump-label">Jump to</small>
+      <a class="jump-item" href="preface.html">FM</a>
+      <a class="jump-item" href="introduction.html">INTRO</a>
+      <a class="jump-item" href="chapter-1.html">1</a>
+      <a class="jump-item" href="chapter-2.html">2</a>
+      <a class="jump-item" href="chapter-3.html">3</a>
+      <a class="jump-item" href="chapter-4.html">4</a>
+      <a class="jump-item" href="chapter-5.html">5</a>
+      <a class="jump-item" href="chapter-6.html">6</a>
+      <a class="jump-item" href="chapter-7.html">7</a>
+      <a class="jump-item" href="chapter-8.html">8</a>
+      <span class="jump-item current" aria-current="page">9</span>
+      <a class="jump-item" href="conclusion.html">CONCL</a>
+      <a class="jump-item" href="appendix.html">APPX</a>
+    </div>
+
+    <a href="chapter-8.html">
+      <small>← Previous</small>
+      <span>Ch. 08 — The Brihatrayi's Verdict</span>
+    </a>
+    <a class="idx" href="index.html#index">
+      <small>Contents</small>
+      <span>Full Index</span>
+    </a>
+    <a class="next" href="conclusion.html">
+      <small>Next →</small>
+      <span>Conclusion — The Manifesto of the Scientific Baseline</span>
+    </a>
+  </div>
+</nav>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="disc">
+        <strong>On sourcing.</strong> This page presents an argument drawn from a single supplied manuscript. The figures shown — bond penalties, shift lengths, stipend levels — are reproduced from that text and have <strong>not been independently verified</strong>. Treat them as claims to check against state government notifications, duty-hour studies, and primary records before citing. The Chennai resident-doctors strike is referenced in the source as supporting footage; that link was not provided here, so no URL is asserted.
+      </div>
+      <div class="colophon">
+        The Disposable Physician<br>
+        A Placebo Economy dispatch<br>
+        Set in Newsreader &amp; IBM Plex Mono<br>
+        <a href="legal.html">Legal notice →</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const progressFill=document.getElementById('progress-fill');
+  function updateProgress(){
+    const d=document.documentElement;
+    const scrollable=d.scrollHeight-d.clientHeight;
+    progressFill.style.transform='scaleX('+(scrollable>0?(d.scrollTop/scrollable):0)+')';
+  }
+  window.addEventListener('scroll',updateProgress,{passive:true});
+  updateProgress();
+
+  if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const io = new IntersectionObserver((es)=>{
+      es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:.12});
+    document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+  } else {
+    document.querySelectorAll('.fade').forEach(el=>el.classList.add('in'));
+  }
+</script>
+</body>
+</html>
