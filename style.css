@@ -125,6 +125,9 @@ body{
 .db-entry-head{display:grid;grid-template-columns:64px 1fr;gap:0 24px;padding-bottom:28px;margin-bottom:36px;border-bottom:1px solid var(--line)}
 .db-entry-num{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--red);border:1.5px solid var(--red);width:44px;height:44px;display:flex;align-items:center;justify-content:center;margin-top:6px}
 .db-sci-name{font-family:'Space Grotesk',sans-serif;font-style:italic;font-weight:300;font-size:15px;color:var(--ash);margin-bottom:6px;letter-spacing:.01em}
+.db-names{display:flex;flex-wrap:wrap;gap:8px 22px;padding:12px 0 4px;margin-top:6px;border-top:1px solid var(--line)}
+.db-name-lang{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ash);margin-right:5px}
+.db-name-val{font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--text)}
 .db-entry-head h2{font-family:'Archivo Black',sans-serif;font-weight:900;font-size:clamp(28px,5vw,54px);text-transform:uppercase;letter-spacing:-.01em;line-height:1.02}
 .db-summary{font-family:'Space Grotesk',sans-serif;font-weight:300;font-size:15px;line-height:1.5;color:var(--text);max-width:620px;margin-top:10px}
 .db-sec{margin-bottom:44px;max-width:760px}
