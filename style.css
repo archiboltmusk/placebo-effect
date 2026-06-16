@@ -109,6 +109,40 @@ body{
   .thesis-col:not(:first-child){border-top:1px solid var(--line)}
 }
 
+/* ── data floor ── */
+.db-browse{padding:22px 0;border-bottom:2px solid var(--ink);background:var(--card)}
+.db-browse .wrap{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.db-browse-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ash);white-space:nowrap}
+.db-browse ul{display:flex;flex-wrap:wrap;gap:6px 12px;list-style:none}
+.db-browse li a{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-decoration:none;padding:5px 10px;border:1.5px solid var(--line);display:block}
+.db-browse li a:hover{border-color:var(--red);color:var(--red)}
+.db-entry{padding:64px 0;border-bottom:2px solid var(--ink)}
+.db-entry-head{display:grid;grid-template-columns:64px 1fr;gap:0 24px;padding-bottom:28px;margin-bottom:36px;border-bottom:1px solid var(--line)}
+.db-entry-num{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--red);border:1.5px solid var(--red);width:44px;height:44px;display:flex;align-items:center;justify-content:center;margin-top:6px}
+.db-sci-name{font-family:'Space Grotesk',sans-serif;font-style:italic;font-weight:300;font-size:15px;color:var(--ash);margin-bottom:6px;letter-spacing:.01em}
+.db-entry-head h2{font-family:'Archivo Black',sans-serif;font-weight:900;font-size:clamp(28px,5vw,54px);text-transform:uppercase;letter-spacing:-.01em;line-height:1.02}
+.db-summary{font-family:'Space Grotesk',sans-serif;font-weight:300;font-size:15px;line-height:1.5;color:var(--text);max-width:620px;margin-top:10px}
+.db-sec{margin-bottom:44px;max-width:760px}
+.db-sec-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.db-sec p,.db-sec li{font-family:'Space Grotesk',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:var(--text)}
+.db-sec p{margin-bottom:12px}
+.db-sec ul{list-style:none;margin:12px 0}
+.db-sec li{padding-left:20px;position:relative;margin-bottom:10px}
+.db-sec li::before{content:"–";position:absolute;left:0;color:var(--ash)}
+.db-sec li b,.db-sec p b{font-weight:600;color:var(--ink)}
+.db-steps{list-style:none;counter-reset:s;margin:16px 0}
+.db-steps li{padding-left:42px;position:relative;margin-bottom:16px;font-family:'Space Grotesk',sans-serif;font-weight:300;font-size:16px;line-height:1.55;color:var(--text);counter-increment:s}
+.db-steps li::before{content:counter(s);position:absolute;left:0;top:1px;width:26px;height:26px;display:flex;align-items:center;justify-content:center;background:var(--ink);color:#fff;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;border-radius:2px}
+.db-steps li b{font-weight:600;color:var(--ink)}
+.db-warn{border:2px solid var(--red);background:rgba(192,57,43,.04);padding:22px 26px;margin-top:4px}
+.db-warn-head{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:16px}
+.db-warn ul{list-style:none;margin:0}
+.db-warn li{padding-left:22px;position:relative;margin-bottom:12px;font-family:'Space Grotesk',sans-serif;font-weight:300;font-size:15px;line-height:1.5;color:var(--text)}
+.db-warn li:last-child{margin-bottom:0}
+.db-warn li::before{content:"▸";position:absolute;left:0;color:var(--red);font-size:12px;top:2px}
+.db-warn li b{font-weight:600;color:var(--ink)}
+@media(max-width:640px){.db-entry-head{grid-template-columns:1fr}.db-entry-num{display:none}}
+
 /* ── mission ── */
 .mission{padding:64px 0;border-bottom:2px solid var(--ink)}
 .mission .kicker{margin-bottom:22px}
