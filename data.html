@@ -18,6 +18,7 @@
 <body>
 
 <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+<button class="scroll-top" id="scroll-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <div class="topbar">
   <div class="wrap">
@@ -1133,6 +1134,9 @@ function updateProgress(){
 }
 window.addEventListener('scroll',updateProgress,{passive:true});
 updateProgress();
+
+const scrollTopBtn=document.getElementById('scroll-top');
+window.addEventListener('scroll',function(){scrollTopBtn.classList.toggle('visible',window.scrollY>400)},{passive:true});
 
 document.querySelectorAll('.reveal').forEach(el=>el.classList.add('pre'));
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('pre');e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
