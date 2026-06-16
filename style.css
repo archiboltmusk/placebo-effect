@@ -111,11 +111,16 @@ body{
 
 /* ── data floor ── */
 .db-browse{padding:22px 0;border-bottom:2px solid var(--ink);background:var(--card)}
-.db-browse .wrap{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
-.db-browse-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ash);white-space:nowrap}
-.db-browse ul{display:flex;flex-wrap:wrap;gap:6px 12px;list-style:none}
-.db-browse li a{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-decoration:none;padding:5px 10px;border:1.5px solid var(--line);display:block}
-.db-browse li a:hover{border-color:var(--red);color:var(--red)}
+.db-browse .wrap{display:flex;flex-direction:column;gap:12px}
+.db-browse-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ash)}
+.db-alpha-row{display:flex;flex-wrap:wrap;gap:6px}
+.db-letter{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:none;border:1.5px solid var(--line);color:var(--ink);padding:5px 11px;cursor:pointer;transition:border-color .12s,color .12s}
+.db-letter:hover,.db-letter.active{border-color:var(--red);color:var(--red)}
+.db-alpha-results{display:flex;flex-wrap:wrap;gap:6px 20px;list-style:none;min-height:28px}
+.db-alpha-results li{display:none}
+.db-alpha-results li.visible{display:block}
+.db-alpha-results li a{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);text-decoration:none}
+.db-alpha-results li a:hover{text-decoration:underline}
 .db-entry{padding:64px 0;border-bottom:2px solid var(--ink)}
 .db-entry-head{display:grid;grid-template-columns:64px 1fr;gap:0 24px;padding-bottom:28px;margin-bottom:36px;border-bottom:1px solid var(--line)}
 .db-entry-num{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--red);border:1.5px solid var(--red);width:44px;height:44px;display:flex;align-items:center;justify-content:center;margin-top:6px}

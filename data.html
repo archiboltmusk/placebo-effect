@@ -41,27 +41,42 @@
 
 <div class="db-browse">
   <div class="wrap">
-    <span class="db-browse-label">// browse by common name</span>
-    <ul>
-      <li><a href="#entry-bearberry">B — Bearberry</a></li>
-      <li><a href="#entry-cayenne">C — Cayenne Pepper</a></li>
-      <li><a href="#entry-chamomile">C — Chamomile</a></li>
-      <li><a href="#entry-clove">C — Clove</a></li>
-      <li><a href="#entry-comfrey">C — Comfrey</a></li>
-      <li><a href="#entry-elecampane">E — Elecampane</a></li>
-      <li><a href="#entry-elderberry">E — Elderberry</a></li>
-      <li><a href="#entry-feverfew">F — Feverfew</a></li>
-      <li><a href="#entry-garlic">G — Garlic</a></li>
-      <li><a href="#entry-ginger">G — Ginger</a></li>
-      <li><a href="#entry-hawthorn">H — Hawthorn</a></li>
-      <li><a href="#entry-licorice">L — Licorice Root</a></li>
-      <li><a href="#entry-meadowsweet">M — Meadowsweet</a></li>
-      <li><a href="#entry-passionflower">P — Passionflower</a></li>
-      <li><a href="#entry-peppermint">P — Peppermint</a></li>
-      <li><a href="#entry-rhubarb">R — Rhubarb</a></li>
-      <li><a href="#entry-turmeric">T — Turmeric</a></li>
-      <li><a href="#entry-valerian">V — Valerian Root</a></li>
-      <li><a href="#entry-willow">W — White Willow Bark</a></li>
+    <span class="db-browse-label">// browse — select a letter</span>
+    <div class="db-alpha-row" id="db-alpha-row">
+      <button class="db-letter" data-letter="B">B</button>
+      <button class="db-letter" data-letter="C">C</button>
+      <button class="db-letter" data-letter="E">E</button>
+      <button class="db-letter" data-letter="F">F</button>
+      <button class="db-letter" data-letter="G">G</button>
+      <button class="db-letter" data-letter="H">H</button>
+      <button class="db-letter" data-letter="L">L</button>
+      <button class="db-letter" data-letter="M">M</button>
+      <button class="db-letter" data-letter="P">P</button>
+      <button class="db-letter" data-letter="R">R</button>
+      <button class="db-letter" data-letter="T">T</button>
+      <button class="db-letter" data-letter="V">V</button>
+      <button class="db-letter" data-letter="W">W</button>
+    </div>
+    <ul class="db-alpha-results" id="db-alpha-results">
+      <li data-letter="B"><a href="#entry-bearberry">Bearberry</a></li>
+      <li data-letter="C"><a href="#entry-cayenne">Cayenne Pepper</a></li>
+      <li data-letter="C"><a href="#entry-chamomile">Chamomile</a></li>
+      <li data-letter="C"><a href="#entry-clove">Clove</a></li>
+      <li data-letter="C"><a href="#entry-comfrey">Comfrey</a></li>
+      <li data-letter="E"><a href="#entry-elecampane">Elecampane</a></li>
+      <li data-letter="E"><a href="#entry-elderberry">Elderberry</a></li>
+      <li data-letter="F"><a href="#entry-feverfew">Feverfew</a></li>
+      <li data-letter="G"><a href="#entry-garlic">Garlic</a></li>
+      <li data-letter="G"><a href="#entry-ginger">Ginger</a></li>
+      <li data-letter="H"><a href="#entry-hawthorn">Hawthorn</a></li>
+      <li data-letter="L"><a href="#entry-licorice">Licorice Root</a></li>
+      <li data-letter="M"><a href="#entry-meadowsweet">Meadowsweet</a></li>
+      <li data-letter="P"><a href="#entry-passionflower">Passionflower</a></li>
+      <li data-letter="P"><a href="#entry-peppermint">Peppermint</a></li>
+      <li data-letter="R"><a href="#entry-rhubarb">Rhubarb</a></li>
+      <li data-letter="T"><a href="#entry-turmeric">Turmeric</a></li>
+      <li data-letter="V"><a href="#entry-valerian">Valerian Root</a></li>
+      <li data-letter="W"><a href="#entry-willow">White Willow Bark</a></li>
     </ul>
   </div>
 </div>
@@ -1122,6 +1137,19 @@ updateProgress();
 document.querySelectorAll('.reveal').forEach(el=>el.classList.add('pre'));
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('pre');e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+(function(){
+  const btns=document.querySelectorAll('.db-letter');
+  const items=document.querySelectorAll('#db-alpha-results li');
+  btns.forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const l=this.dataset.letter;
+      btns.forEach(b=>b.classList.remove('active'));
+      this.classList.add('active');
+      items.forEach(li=>li.classList.toggle('visible',li.dataset.letter===l));
+    });
+  });
+})();
 </script>
 </body>
 </html>
