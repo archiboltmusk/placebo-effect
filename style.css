@@ -315,6 +315,7 @@ details.index-row[open]>summary .go .arrow{transform:rotate(180deg)}
 .booknav .next{text-align:right;align-items:flex-end;margin-left:auto}
 .booknav .idx{align-items:center;text-align:center}
 .booknav .idx small{color:var(--ash)}
+.booknav-title{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.005em;line-height:1.25;color:var(--ink);align-self:center;text-align:center}
 .booknav a:hover span{text-decoration:underline}
 @media(max-width:680px){.booknav .wrap{flex-direction:column}.booknav .next{align-items:flex-start;text-align:left;margin-left:0}}
 .booknav.single .wrap{justify-content:center}
