@@ -42,6 +42,11 @@
 
 <div class="db-browse">
   <div class="wrap">
+    <span class="db-browse-label">// search — by plant, compound, symptom, or mechanism</span>
+    <div class="db-search-row">
+      <input type="text" id="db-search-input" class="db-search-input" placeholder="e.g. &quot;nausea&quot;, &quot;gingerol&quot;, &quot;5-HT3&quot;, &quot;pregnancy&quot;…" autocomplete="off">
+      <span class="db-search-count" id="db-search-count"></span>
+    </div>
     <span class="db-browse-label">// browse — select a letter</span>
     <div class="db-alpha-row" id="db-alpha-row">
       <button class="db-letter" data-letter="A">A</button>
@@ -5927,14 +5932,59 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 (function(){
   const btns=document.querySelectorAll('.db-letter');
   const items=document.querySelectorAll('#db-alpha-results li');
+  const entries=document.querySelectorAll('.db-entry');
+  const searchInput=document.getElementById('db-search-input');
+  const searchCount=document.getElementById('db-search-count');
+
+  const index=[];
+  entries.forEach(entry=>{
+    index.push({id:entry.id,text:entry.textContent.toLowerCase()});
+  });
+  const textById={};
+  index.forEach(e=>{textById[e.id]=e.text});
+
+  function clearSearch(){
+    searchCount.textContent='';
+    entries.forEach(e=>e.classList.remove('db-search-hide'));
+  }
+
   btns.forEach(btn=>{
     btn.addEventListener('click',function(){
+      searchInput.value='';
+      clearSearch();
       const l=this.dataset.letter;
       btns.forEach(b=>b.classList.remove('active'));
       this.classList.add('active');
       items.forEach(li=>li.classList.toggle('visible',li.dataset.letter===l));
     });
   });
+
+  let debounce;
+  searchInput.addEventListener('input',function(){
+    clearTimeout(debounce);
+    debounce=setTimeout(runSearch,120);
+  });
+
+  function runSearch(){
+    const q=searchInput.value.trim().toLowerCase();
+    if(!q){
+      clearSearch();
+      items.forEach(li=>li.classList.remove('visible'));
+      return;
+    }
+    btns.forEach(b=>b.classList.remove('active'));
+    let matches=0;
+    items.forEach(li=>{
+      const href=li.querySelector('a').getAttribute('href').slice(1);
+      const isMatch=(textById[href]||'').includes(q);
+      li.classList.toggle('visible',isMatch);
+      if(isMatch)matches++;
+    });
+    entries.forEach(e=>{
+      e.classList.toggle('db-search-hide',!textById[e.id].includes(q));
+    });
+    searchCount.textContent=matches+(matches===1?' match':' matches')+' for "'+searchInput.value.trim()+'"';
+  }
 })();
 </script>
 </body>
