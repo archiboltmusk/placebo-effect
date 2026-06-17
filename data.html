@@ -42,6 +42,11 @@
 
 <div class="db-browse">
   <div class="wrap">
+    <span class="db-browse-label">// search — by plant, compound, symptom, or mechanism</span>
+    <div class="db-search-row">
+      <input type="text" id="db-search-input" class="db-search-input" placeholder="e.g. &quot;nausea&quot;, &quot;gingerol&quot;, &quot;5-HT3&quot;, &quot;pregnancy&quot;…" autocomplete="off">
+      <span class="db-search-count" id="db-search-count"></span>
+    </div>
     <span class="db-browse-label">// browse — select a letter</span>
     <div class="db-alpha-row" id="db-alpha-row">
       <button class="db-letter" data-letter="A">A</button>
@@ -69,31 +74,46 @@
     </div>
     <ul class="db-alpha-results" id="db-alpha-results">
       <li data-letter="A"><a href="#entry-agrimony">Agrimony</a></li>
+      <li data-letter="A"><a href="#entry-andrographis">Andrographis</a></li>
       <li data-letter="A"><a href="#entry-aloe-vera">Aloe Vera</a></li>
       <li data-letter="A"><a href="#entry-arnica">Arnica</a></li>
+      <li data-letter="A"><a href="#entry-astragalus">Astragalus</a></li>
+      <li data-letter="A"><a href="#entry-shatavari">Shatavari</a></li>
+      <li data-letter="A"><a href="#entry-butterfly-weed">Butterfly Weed</a></li>
       <li data-letter="B"><a href="#entry-black-cohosh">Black Cohosh</a></li>
       <li data-letter="B"><a href="#entry-black-mustard">Black Mustard</a></li>
+      <li data-letter="B"><a href="#entry-barberry">Barberry</a></li>
+      <li data-letter="B"><a href="#entry-borage">Borage</a></li>
       <li data-letter="B"><a href="#entry-bearberry">Bearberry</a></li>
       <li data-letter="B"><a href="#entry-bilberry">Bilberry</a></li>
       <li data-letter="B"><a href="#entry-bloodroot">Bloodroot</a></li>
       <li data-letter="B"><a href="#entry-blue-flag">Blue Flag</a></li>
       <li data-letter="B"><a href="#entry-burdock">Burdock Root</a></li>
       <li data-letter="C"><a href="#entry-calamus">Calamus Root</a></li>
+      <li data-letter="C"><a href="#entry-shepherds-purse">Shepherd's Purse</a></li>
       <li data-letter="C"><a href="#entry-chasteberry">Chasteberry</a></li>
+      <li data-letter="C"><a href="#entry-caraway">Caraway</a></li>
       <li data-letter="C"><a href="#entry-cardamom">Cardamom</a></li>
       <li data-letter="C"><a href="#entry-castor-bean">Castor Bean</a></li>
+      <li data-letter="C"><a href="#entry-senna">Senna</a></li>
       <li data-letter="C"><a href="#entry-cayenne">Cayenne Pepper</a></li>
+      <li data-letter="C"><a href="#entry-celandine">Greater Celandine</a></li>
+      <li data-letter="C"><a href="#entry-celery-seed">Celery Seed</a></li>
       <li data-letter="C"><a href="#entry-chamomile">Chamomile</a></li>
+      <li data-letter="C"><a href="#entry-pipsissewa">Pipsissewa</a></li>
       <li data-letter="C"><a href="#entry-clove">Clove</a></li>
       <li data-letter="C"><a href="#entry-coffee">Coffee Bean</a></li>
       <li data-letter="C"><a href="#entry-cola-nut">Cola Nut</a></li>
       <li data-letter="C"><a href="#entry-comfrey">Comfrey</a></li>
       <li data-letter="D"><a href="#entry-dandelion">Dandelion Root</a></li>
       <li data-letter="D"><a href="#entry-belladonna">Deadly Nightshade</a></li>
+      <li data-letter="D"><a href="#entry-dill">Dill</a></li>
+
       <li data-letter="E"><a href="#entry-elecampane">Elecampane</a></li>
       <li data-letter="E"><a href="#entry-echinacea">Echinacea</a></li>
       <li data-letter="E"><a href="#entry-elderberry">Elderberry</a></li>
       <li data-letter="F"><a href="#entry-feverfew">Feverfew</a></li>
+      <li data-letter="F"><a href="#entry-fringe-tree">Fringe Tree</a></li>
       <li data-letter="G"><a href="#entry-garlic">Garlic</a></li>
       <li data-letter="G"><a href="#entry-gentian">Great Yellow Gentian</a></li>
       <li data-letter="G"><a href="#entry-ground-ivy">Ground Ivy</a></li>
@@ -139,9 +159,11 @@
       <li data-letter="W"><a href="#entry-white-hellebore">White Hellebore</a></li>
       <li data-letter="W"><a href="#entry-willow">White Willow Bark</a></li>
       <li data-letter="W"><a href="#entry-wild-black-cherry">Wild Black Cherry Bark</a></li>
+      <li data-letter="W"><a href="#entry-wild-indigo">Wild Indigo</a></li>
       <li data-letter="W"><a href="#entry-wild-lettuce">Wild Lettuce</a></li>
       <li data-letter="W"><a href="#entry-wildoat">Wild Oat</a></li>
       <li data-letter="W"><a href="#entry-witch-hazel">Witch Hazel</a></li>
+      <li data-letter="W"><a href="#entry-wormwood">Wormwood</a></li>
       <li data-letter="Y"><a href="#entry-yarrow">Yarrow</a></li>
       <li data-letter="Y"><a href="#entry-yellow-dock">Yellow Dock</a></li>
     </ul>
@@ -1020,6 +1042,65 @@
           <li><b>Meningismus (headache + neck stiffness + fever + photophobia):</b> This triad signals acute bacterial meningitis — a medical emergency. Inability to flex the chin to the chest (Kernig's or Brudzinski's sign), systemic fever above 39°C, and severe photophobia require immediate IV antibiotics without waiting for lumbar puncture results. Every hour of delay increases mortality and neurological morbidity.</li>
           <li><b>Severe aphthous stomatitis or tongue swelling from raw leaf contact:</b> Direct chewing of raw feverfew leaves is a traditional folk preparation but causes direct sesquiterpene lactone contact sensitivity — severe mouth ulcers, tongue swelling, and loss of taste in susceptible individuals. Discontinue immediately. The processed infusion avoids direct mucosal contact with the plant material.</li>
           <li><b>Concurrent anticoagulants or antiplatelet agents:</b> Absolute contraindication alongside aspirin, clopidogrel, warfarin, or rivaroxaban. Parthenolide's platelet serotonin and arachidonic acid release inhibition is additive with anticoagulant/antiplatelet drugs — compounding spontaneous internal hemorrhage risk and perioperative bleeding failure.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Entry 91: Chionanthus virginicus ── -->
+<section class="db-entry reveal" id="entry-fringe-tree">
+  <div class="wrap">
+    <div class="db-entry-head">
+      <div class="db-entry-num">91</div>
+      <div>
+        <div class="db-sci-name">Chionanthus virginicus · L. · Oleaceae</div>
+        <h2>Fringe Tree</h2>
+        <p class="db-summary">The tough, dull gray root bark synthesizes a dense secoiridoid and lignan glucoside matrix dominated by the bitter glycoside <b>chionanthin</b>, alongside the lignan glucoside <b>phillyrin</b> (forsythin), saponins, and condensed gallotannins. Chionanthin's intense bitterness triggers a T2R bitter-receptor reflex that drives hepatic bile synthesis and coordinated gallbladder contraction. The indication is narrow — bitter hepato-biliary support for sluggish post-meal digestion — and the triage hardlines exist because forcing bile flow against an undiagnosed obstruction is dangerous.</p>
+      </div>
+    </div>
+
+    <div class="db-sec">
+      <div class="db-sec-label">// I. verified mechanism</div>
+      <p><b>T2R hepato-biliary secretomotor reflex (chionanthin):</b> Upon oral ingestion, the intense bitter properties of chionanthin interface directly with T2R bitter taste receptors situated across the posterior third of the tongue and the upper gastric mucosa. This contact initiates an immediate parasympathetic vagal reflex arc that commands hepatic parenchymal cells to accelerate bile acid synthesis (choleretic effect). Concurrently, it coordinates a smooth, rhythmic contraction of the gallbladder smooth muscle wall alongside relaxation of the Sphincter of Oddi (cholagogue effect), sweeping away thick, stagnant bile and clearing hepato-biliary congestion.</p>
+      <p><b>Endothelial and intercellular lipid modulation (phillyrin):</b> The phillyrin fractions exert secondary, localized tissue actions that stabilize cell membranes and modulate local lipid transit, assisting the liver's natural structural clearing loops.</p>
+    </div>
+
+    <div class="db-sec">
+      <div class="db-sec-label">// II. domestic processing — sealed hepatic decoction</div>
+      <div class="db-warn">
+        <div class="db-warn-head">// gastric erosion and cholestatic blockade caution</div>
+        <ul>
+          <li><em>Chionanthus virginicus</em> is a high-affinity biliary prokinetic agent. Exceeding dry-weight thresholds or using this root bark in an open, uncovered boil overloads the extraction with harsh, irritating resins and concentrated tannins that trigger immediate, painful upper gastric spasms, severe nausea, and vomiting. Forcing biliary contractions against a hidden, physical stone blockage can cause fatal tissue rupture. Fringe tree root bark must never be used continuously for more than 2 consecutive weeks.</li>
+        </ul>
+      </div>
+      <ol class="db-steps">
+        <li><b>Dosing:</b> Weigh exactly 1.5 g of thoroughly dried <em>Chionanthus virginicus</em> root bark. Do not exceed this boundary under any circumstances per preparation cycle.</li>
+        <li><b>Mechanical opening:</b> Crush the tough, brittle gray bark segments firmly using a heavy iron mortar and pestle to reduce them to a coarse, splintery sawdust. This fractures the dense cellular walls, making the deep-seated chionanthin glycosides accessible to the solvent.</li>
+        <li><b>Hydro-thermal solvent separation:</b> Place the milled bark fragments into a small stainless steel saucepan. Add exactly 200 mL of clean water. Bring to a rapid, rolling boil (100°C) over high heat.</li>
+        <li><b>The closed gentle simmer law:</b> As soon as the water boils, immediately lower the heat to maintain a steady, gentle simmer (85–90°C). Fit a heavy lid tightly over the pan to prevent fluid loss and trap any trace volatile fractions. Maintain this simmering window for exactly 15 minutes — fringe tree tissue is dense and woody, so a simple steeping cycle cannot break free the active secoiridoid glycosides; a sustained, closed thermal simmer is mandatory.</li>
+        <li><b>Separation:</b> Remove from heat. Strain the hot, yellow-amber, intensely bitter liquid through a fine wire mesh filter into a clean mug, discarding the spent bark fibers completely. Let it cool until warm.</li>
+        <li><b>Application:</b> Drink warm. For post-meal upper abdominal heaviness or digestive sluggishness, consume the entire 200 mL dose slowly in small sips strictly 15 minutes before your largest meal of the day.</li>
+      </ol>
+    </div>
+
+    <div class="db-sec">
+      <div class="db-sec-label">// III. clinical indications — evidence basis</div>
+      <ul>
+        <li><b>Acute postprandial biliary sluggishness:</b> Bitter hepato-biliary support to help stimulate bile flow, eliminate heavy post-meal upper abdominal pressure, and clear transient bloating after eating greasy foods.</li>
+        <li><b>Transient loss of appetite support:</b> Short-term sensory priming to help activate baseline digestive secretomotor loops during brief periods of stress-induced metabolic apathy.</li>
+      </ul>
+    </div>
+
+    <div class="db-sec">
+      <div class="db-sec-label">// IV. allopathic triage hardlines — do not substitute</div>
+      <div class="db-warn">
+        <div class="db-warn-head">// stop and seek emergency/allopathic care if any of the following apply</div>
+        <ul>
+          <li><b>Active gallbladder obstruction or acute cholecystitis:</b> Absolute contraindication. Never consume fringe tree extractions if you have known gallstones, an active bile duct blockage, or severe pain in the upper right quadrant of your abdomen. Forcing gallbladder contractions against a physical stone obstruction can cause acute bile duct rupture, jaundice, or life-threatening biliary pancreatitis.</li>
+          <li><b>Onset of fulminant hepatic insufficiency signs:</b> Absolute clinical emergency — discontinue immediately and seek urgent medical care if you develop pale or clay-colored stools, dark tea-colored urine, sudden loss of skin turgor, or a distinct yellowing of the skin or eyes (jaundice), signaling advanced acute liver pathology.</li>
+          <li><b>Active gastric or duodenal peptic ulcers:</b> Absolute contraindication. This material aggressively drives up gastric acid and digestive juice production, which can rapidly erode raw, exposed tissue linings in the stomach wall, intensifying bleeding risks.</li>
+          <li><b>Pregnancy and embryotoxic restriction:</b> Completely banned for pregnant or nursing individuals. The active secoiridoid matrix can alter baseline smooth muscle tone and presents a potential embryotoxic profile that threatens gestational stability.</li>
         </ul>
       </div>
     </div>
@@ -4424,6 +4505,9 @@
       <div>
         <div class="db-sci-name">Urtica dioica · L. · Urticaceae</div>
         <h2>Stinging Nettle</h2>
+        <div class="db-names">
+        <span class="db-name-pair"><span class="db-name-lang">HI</span><span class="db-name-val">बिच्छू बूटी · Bichhu Booti</span></span>
+        </div>
         <p class="db-summary">The dried leaf and root matrices of <em>Urtica dioica</em> synthesize contrasting profiles. Leaves concentrate water-soluble <b>flavonoids</b> (quercetin, rutin), potassium, and formic acid in silica-tipped trichomes; roots contain <b>phytosterols</b> (<i>β</i>-sitosterol), lignans (secoisolariciresinol), and the agglutinin protein UDA. Leaf flavonoids stabilize mast cells and reduce histamine release; root phytosterols mildly inhibit <i>5α</i>-reductase, reducing DHT formation and supporting normal urinary flow.</p>
       </div>
     </div>
@@ -4619,6 +4703,18 @@
       <div>
         <div class="db-sci-name">Allium cepa · L. · Amaryllidaceae</div>
         <h2>Onion</h2>
+        <div class="db-names">
+        <span class="db-name-pair"><span class="db-name-lang">SA</span><span class="db-name-val">पलाण्डु · Palandu</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">HI</span><span class="db-name-val">प्याज़ · Pyaz</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">BN</span><span class="db-name-val">পেঁয়াজ · Peyaj</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">MR</span><span class="db-name-val">कांदा · Kanda</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">GU</span><span class="db-name-val">ડુંગળી · Dungli</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">PA</span><span class="db-name-val">ਪਿਆਜ਼ · Piaz</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">TA</span><span class="db-name-val">வெங்காயம் · Vengayam</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">TE</span><span class="db-name-val">ఉల్లిపాయ · Ullipaya</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">KN</span><span class="db-name-val">ಈರುಳ್ಳಿ · Eerulli</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">ML</span><span class="db-name-val">ഉള്ളി · Ulli</span></span>
+        </div>
         <p class="db-summary">The layered, subterranean bulbs of <em>Allium cepa</em> synthesize water-soluble <b>flavonols</b>—concentrated in the dry outer papery skins—and compartmentalized organosulfur compounds (isoalliin, alliinase). The flavonol <b>quercetin</b> acts as a mast cell stabilizer, preventing histamine and leukotriene release; the organosulfurs trigger a lachrymatory reflex cascade upon cellular disruption. The skin-derived quercetin (20× higher concentration than flesh) is the primary therapeutic source, requiring sustained thermal extraction to release from cell matrices.</p>
       </div>
     </div>
@@ -4680,6 +4776,18 @@
       <div>
         <div class="db-sci-name">Piper nigrum · L. · Piperaceae</div>
         <h2>Black Pepper</h2>
+        <div class="db-names">
+        <span class="db-name-pair"><span class="db-name-lang">SA</span><span class="db-name-val">मरिच · Maricha</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">HI</span><span class="db-name-val">काली मिर्च · Kali Mirch</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">BN</span><span class="db-name-val">গোলমরিচ · Gol Morich</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">MR</span><span class="db-name-val">मिरी · Miri</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">GU</span><span class="db-name-val">મરી · Mari</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">PA</span><span class="db-name-val">ਕਾਲੀ ਮਿਰਚ · Kali Mirch</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">TA</span><span class="db-name-val">மிளகு · Milagu</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">TE</span><span class="db-name-val">మిరియాలు · Miriyalu</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">KN</span><span class="db-name-val">ಮೆಣಸು · Menasu</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">ML</span><span class="db-name-val">കുരുമുളക് · Kurumulaku</span></span>
+        </div>
         <p class="db-summary">The small, wrinkled, dark brown-to-black peppercorns (dried unripe fruits) of <em>Piper nigrum</em> synthesize a dense matrix of highly pungent, nitrogenous lipid-soluble alkaloids—heavily dominated by <b>piperine</b> (5–9%)—balanced by an aromatic essential oil fraction rich in volatile sesquiterpenes (<i>β</i>-caryophyllene, pinene, limonene). Piperine acts as a potent inhibitor of hepatic CYP3A4, intestinal UGT, and P-glycoprotein efflux pumps, spiking bioavailability of co-administered lipophobic compounds by up to 2,000%; it also activates TRPV1 thermoreceptors and T2R bitter taste receptors.</p>
       </div>
     </div>
@@ -4738,6 +4846,1057 @@
   </div>
 </section>
 
+<!-- ── Entry 76: Andrographis paniculata ── -->
+<section class="db-entry reveal" id="entry-andrographis">
+  <div class="wrap">
+    <div class="db-entry-head">
+      <div class="db-entry-num">76</div>
+      <div>
+        <div class="db-sci-name">Andrographis paniculata · (Burm.f.) Nees · Acanthaceae</div>
+        <h2>Andrographis</h2>
+        <div class="db-names">
+        <span class="db-name-pair"><span class="db-name-lang">SA</span><span class="db-name-val">भूनिम्ब · Bhunimba</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">HI</span><span class="db-name-val">कालमेघ · Kalmegh</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">BN</span><span class="db-name-val">কালমেঘ · Kalmegh</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">MR</span><span class="db-name-val">ओलंबी · Olambi</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">PA</span><span class="db-name-val">ਕਾਲਮੇਘ · Kalmegh</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">TA</span><span class="db-name-val">நிலவேம்பு · Nilavembu</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">TE</span><span class="db-name-val">నేలవేము · Nelavemu</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">KN</span><span class="db-name-val">ನೆಲಬೇವು · Nelabevu</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">ML</span><span class="db-name-val">നിലവേപ്പ് · Nilaveppu</span></span>
+        </div>
+        <p class="db-summary">The slender square stems and pale green leaves of <em>Andrographis paniculata</em> synthesize an exceptionally intense, specialized bitter matrix dominated by highly lipophilic <b>diterpene lactones</b>—primarily <b>andrographolide</b> (1–4%), along with neoandrographolide and deoxyandrographolide. This matrix balances with bioflavonoids and high mineral salts. Andrographolide binds to <i>T2R</i> bitter taste receptors with exceptional affinity, triggering parasympathetic reflex secretomotor cascades; systemically, it blocks <i>NF-κB</i> and <i>JAK-STAT</i> transcription pathways, halting pro-inflammatory cytokine synthesis and dampening endothelial adhesion molecule expression.</p>
+      </div>
+    </div>
+
+    <!-- SECTION I: MECHANISM ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// I. mechanism of action</div>
+      <ul>
+        <li><b>The Extreme T2R Bitter Gustatory Reflex:</b> Ingested andrographolide interacts with <i>T2R</i> bitter taste receptors on the tongue with one of the highest binding affinities recorded in botany. This extreme stimulus triggers a rapid parasympathetic reflex arc via the vagus nerve, commanding the liver to accelerate bile production (choleretic effect), which clears upper gastric stagnation.</li>
+        <li><b>Intracellular <i>NF-κB</i> and <i>JAK-STAT</i> Transcription Blockade:</b> Systemically absorbed andrographolide fragments penetrate deep into circulating immune cells. At the molecular level, it binds directly to the <i>NF-κB (Nuclear Factor kappa B)</i> gene signaling cascade, preventing the transcription of pro-inflammatory proteins. Concurrently, it downregulates the <i>JAK-STAT</i> pathway, which halts the downstream synthesis of inflammatory cytokines (such as TNF-<i>α</i>, IL-1<i>β</i>, and IL-6), rapidly cooling localized tissue heat and mucosal swelling along raw respiratory membranes.</li>
+        <li><b>Endothelial Adhesion Damping:</b> It drops the expression of cellular adhesion molecules (ICAM-1), slowing down the migration of inflammatory cells into localized throat tissues.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION II: PROCESSING ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// II. kitchen processing</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Gastric Mucosal Irritation &amp; The Intense Bitter Reject</div>
+        <ul>
+          <li><strong><em>Andrographis paniculata</em> is intensely, overwhelmingly bitter.</strong> Attempting to drink an over-concentrated or unbuffered fluid extraction can cause an immediate, violent gag reflex, acute vomiting, and intense epigastric burning. The lipophilic diterpene lactones can sharply irritate raw stomach linings if consumed without a food buffer. Furthermore, high therapeutic doses can cause temporary loss of taste or mild dizziness. Strict adherence to exact dry-weight thresholds is mandatory, and continuous usage must never exceed 2 consecutive weeks.</li>
+        </ul>
+      </div>
+      <ol class="db-steps">
+        <li><b>Dosing:</b> Weigh exactly 1 gram of thoroughly dried <em>Andrographis paniculata</em> leaf and stem fragments. Do not exceed this boundary per preparation cycle; over-concentration sharply escalates the risk of stomach irritation and vomiting.</li>
+        <li><b>Mechanical Opening:</b> Crumble the brittle leaves and square stem segments gently between clean fingers directly into a ceramic mug to open the internal structural cells, making the active andrographolide accessible to the solvent.</li>
+        <li><b>Hydro-Thermal Solvent Selection:</b> Pour exactly 150 mL of water (H<sub>2</sub>O) heated to a controlled threshold of exactly 90°C to 95°C directly over the herb.</li>
+        <li><b>The Extractive Thermal Window:</b> Never boil andrographis continuously and never use an uncovered rolling boil (100°C). While the diterpene lactones are structurally tough, an open boiling vessel drives away light volatile fractions that balance the extreme bitterness, rendering the fluid completely unpalatable. Sub-boiling water provides the ideal thermal balance to draw out the active principles safely.</li>
+        <li><b>The Sealed Steeping Window:</b> Immediately cover the mug tightly with a heavy saucer to trap the steam and contain the pungent aroma. Let the mixture sit undisturbed to steep for exactly 5 to 7 minutes (do not let it over-steep, or the bitterness will become unmanageable).</li>
+        <li><b>Separation:</b> Strain the clear, light yellow-green, intensely bitter liquid through a fine wire sieve. Allow it to cool to warm and drink rapidly in 2 or 3 quick swallows; do not sip it. Always consume this extract strictly following a solid meal containing starches or fats to shield the stomach lining from raw acid activation.</li>
+      </ol>
+    </div>
+
+    <!-- SECTION III: INDICATIONS ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// III. clinical indications</div>
+      <ul>
+        <li><b>Early Seasonal Upper Respiratory Congestion:</b> Short-term systemic support to help calm minor nasal stuffiness, sneezing, and runny nose at the first sign of a winter chill.</li>
+        <li><b>Minor Superficial Pharyngeal Rawness:</b> Targeted transcription blockade to help cool and soothe localized heat and throat irritation caused by environmental seasonal stress.</li>
+        <li><b>Postprandial Upper Digestive Sluggishness:</b> Extreme bitter secretomotor support to help stimulate sluggish gastric acid output and eliminate heavy post-meal upper abdominal pressure.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION IV: TRIAGE ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// IV. the allopathic triage hardline</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Critical Warning</div>
+        <ul>
+          <li><b>Onset of Acute Lower Respiratory Distress:</b> Absolute emergency criteria: If a sore throat or nasal stuffiness turns into continuous wheezing, severe chest tightness, high-pitched stridor upon breathing in, or an inability to speak in full sentences, signaling an acute airway crisis.</li>
+          <li><b>Signs of an Advanced Obstructive Infection:</b> If upper respiratory symptoms are accompanied by a sudden high fever (>38.5°C), severe chills, sharp chest pains when coughing, or the coughing up of thick green, rust-colored, or blood-streaked purulent sputum, signaling bacterial pneumonia requiring immediate prescription antibiotics.</li>
+          <li><b>Concomitant Pharmaceutical Anticoagulant Therapy:</b> Absolute safety rule: Never consume large therapeutic amounts of andrographis if you take prescription blood thinners. Early laboratory models suggest specific andrographis fractions may inhibit platelet aggregation; combining them risks altering bleeding dynamics.</li>
+          <li><b>Pregnancy and Antifertility Precaution:</b> Absolute contraindication for pregnant individuals or those planning a pregnancy. Experimental animal data demonstrates that high-dose andrographis extracts can exert mild interceptive and antifertility properties, posing an imminent risk to early gestational stability.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Entry 77: Anethum graveolens ── -->
+<section class="db-entry reveal" id="entry-dill">
+  <div class="wrap">
+    <div class="db-entry-head">
+      <div class="db-entry-num">77</div>
+      <div>
+        <div class="db-sci-name">Anethum graveolens · L. · Apiaceae</div>
+        <h2>Dill</h2>
+        <div class="db-names">
+        <span class="db-name-pair"><span class="db-name-lang">SA</span><span class="db-name-val">शतपुष्पा · Shatapushpa</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">HI</span><span class="db-name-val">सोआ · Soa</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">BN</span><span class="db-name-val">শুলফা · Shulpha</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">MR</span><span class="db-name-val">शेपू · Shepu</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">GU</span><span class="db-name-val">સુવા · Suva</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">PA</span><span class="db-name-val">ਸੋਆ · Soa</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">TA</span><span class="db-name-val">சதகுப்பை · Sathakuppai</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">TE</span><span class="db-name-val">సతకుప్ప · Satakuppa</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">KN</span><span class="db-name-val">ಸಬ್ಬಸಿಗೆ · Sabbasige</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">ML</span><span class="db-name-val">ചതകുപ്പ · Chatakuppa</span></span>
+        </div>
+        <p class="db-summary">The ribbed, oval seeds (mericarps) and feathery fronds of <em>Anethum graveolens</em> synthesize a highly focused, lipophilic volatile matrix dominated by the monoterpenes <b>d-carvone</b> (40–60%) and <b>limonene</b> (30–40%), structurally balanced by water-soluble coumarins and bioflavonoids. Carvone and limonene block extracellular calcium ion influx across smooth muscle cell membranes, halting erratic abdominal cramping; concurrently, the volatile oils reduce surface tension of trapped gas bubbles, forcing coalescence into larger singular pockets easily vented upward by the upper digestive tract, eliminating bloating and internal distension.</p>
+      </div>
+    </div>
+
+    <!-- SECTION I: MECHANISM ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// I. mechanism of action</div>
+      <ul>
+        <li><b>Gastrointestinal Myotropic Spasmolysis (Carvone & Limonene):</b> Ingested carvone and limonene molecules diffuse rapidly into the smooth muscle walls of the upper gastrointestinal tract. At the cellular level, these lipophilic monoterpenes block the entry of extracellular calcium ions (Ca<sup>2+</sup>) across the smooth muscle cell membranes (calcium channel antagonism). This inhibition prevents the localized, erratic smooth muscle contractions that drive painful abdominal cramping.</li>
+        <li><b>Gaseous Coalescence and Carminative Venting:</b> Concurrently, the volatile oils reduce the surface tension of trapped gas bubbles within the gastric floor. This mechanical action forces tiny, painful micro-bubbles to coalesce into larger, singular pockets of air, making it significantly easier for the upper digestive tract to vent the trapped gas upward, eliminating internal bloating and distension.</li>
+        <li><b>T2R Gustatory Secretomotor Activation:</b> The minor bitter terpene fractions stimulate localized T2R receptors on the tongue, driving a gentle parasympathetic reflex that increases stomach acid production to process stagnated food.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION II: PROCESSING ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// II. kitchen processing</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Covered Thermal Restraint Protocols & Volatile Oil Preservation</div>
+        <ul>
+          <li><strong>CRITICAL VOLATILE PROCESSING WARNING:</strong> The primary therapeutic agents in dill seeds are highly volatile monoterpenes (<b>d-carvone</b> and <b>limonene</b>), which possess low boiling points. <strong>If you crush dill seeds and boil them in an open, uncovered pan, the active oils will completely evaporate into the air within minutes, leaving behind a flat, watery fluid stripped of its carminative and anti-spasmodic properties.</strong> Furthermore, using pre-ground seeds from a tin is useless, as exposure to light and air rapidly oxidizes the terpene resins.</li>
+        </ul>
+      </div>
+      <ol class="db-steps">
+        <li><b>Dosing:</b> Weigh exactly 2 grams of whole, dried <em>Anethum graveolens</em> seeds (~1 flat teaspoon). Do not exceed this boundary per preparation cycle; over-concentration can cause mild temporary upper gastric acid reflux or throat irritation.</li>
+        <li><b>The Mandatory Fresh-Cracking Rule:</b> Place the whole seeds into a clean manual spice mill or heavy mortar and pestle and crack them coarsely <em>immediately before extraction</em>. Cracking the seeds breaks open the thick structural walls of the internal oil channels (vittae), releasing the d-carvone.</li>
+        <li><b>Hydro-Thermal Solvent Separation:</b> Scraping the freshly cracked seed fragments directly into a ceramic mug. Pour exactly 150 mL of water (H<sub>2</sub>O) heated to a controlled threshold of <strong>exactly 90°C to 95°C</strong> directly over the seeds.</li>
+        <li><b>The Sealed Condensation Window:</b> Immediately cover the mug tightly with a heavy lid or ceramic saucer to trap the rising steam. Let the mixture sit undisturbed to steep for <strong>exactly 10 minutes</strong>. As the volatile oils vaporize into the sealed space, they will hit the underside of the heavy lid, condense, and fall back down into the liquid solvent.</li>
+        <li><b>Separation:</b> Strain the clear, pale straw-yellow, distinctly aromatic and slightly spicy liquid through a fine wire mesh filter into a clean cup, discarding the spent seed sediment entirely. Drink warm. For post-meal gas and bloating, consume slowly in small sips strictly <em>following</em> a dense or greasy meal.</li>
+      </ol>
+    </div>
+
+    <!-- SECTION III: INDICATIONS ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// III. clinical indications</div>
+      <ul>
+        <li><b>Transient Postprandial Upper Digestive Bloating:</b> Carminative support to help collapse trapped micro-bubbles and ease the tight, swollen feeling in the upper stomach after eating.</li>
+        <li><b>Minor Self-Limiting Gastrointestinal Spasms:</b> Localized calcium-blocking smooth muscle relaxation to help calm minor, self-limiting abdominal cramping caused by sudden dietary shifts.</li>
+        <li><b>Postprandial Upper Digestive Sluggishness:</b> Gentle secretomotor support to help stimulate sluggish gastric acid output and move stagnated food masses along the upper digestive floor.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION IV: TRIAGE ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// IV. the allopathic triage hardline</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Critical Warning</div>
+        <ul>
+          <li><b>Onset of Acute Obstructive Abdominal Symptoms:</b> Absolute emergency criteria: If digestive cramping turns into sudden, agonizing, localized pain, persistent projectile vomiting, an absolute inability to pass gas or stool, or a high fever (>38.5°C), signaling acute appendicitis, cholecystitis, or a mechanical bowel obstruction rather than simple post-meal gas.</li>
+          <li><b>Presence of Severe Gastroesophageal Reflux Disease (GERD):</b> Absolute contraindication. If drinking triggers severe, burning pain behind the breastbone (heartburn) radiating up into the throat. The carminative monoterpenes can aggressively relax the smooth muscle of the lower esophageal sphincter, allowing stomach acid to surge upward and worsen tissue erosion in the esophagus.</li>
+          <li><b>Signs of Accidental Ocular or Respiratory Exposure:</b> If finely ground seed dust or raw volatile oils are introduced to the eyes or inhaled, leading to sudden throat choking, continuous coughing fits, or an inability to open the eyelids. Seek immediate professional toxicological oil flushing.</li>
+          <li><b>Apiaceae Family Cross-Sensitivity Explosion:</b> Discontinue use immediately if consumption triggers a sudden widespread skin rash, hives, or swelling of the lips, indicating cross-sensitization in individuals allergic to celery, carrots, fennel, or cumin.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Entry 78: Apium graveolens ── -->
+<section class="db-entry reveal" id="entry-celery-seed">
+  <div class="wrap">
+    <div class="db-entry-head">
+      <div class="db-entry-num">78</div>
+      <div>
+        <div class="db-sci-name">Apium graveolens · L. · Apiaceae</div>
+        <h2>Celery Seed</h2>
+        <div class="db-names">
+        <span class="db-name-pair"><span class="db-name-lang">SA</span><span class="db-name-val">अजमोदा · Ajamoda</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">HI</span><span class="db-name-val">अजमोद · Ajmod</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">MR</span><span class="db-name-val">अजमोदा · Ajamoda</span></span>
+        </div>
+        <p class="db-summary">The minuscule, ribbed brown seeds (mericarps) of <em>Apium graveolens</em> synthesize an intensive, highly distinct lipophilic volatile matrix dominated by <b>phthalides</b> (2–4%), specifically <b>3-n-butylphthalide (3nB)</b> and sedanolide, structurally balanced by a fragrant essential oil fraction rich in <b>d-limonene</b> (60–70%) and β-selinene, alongside water-soluble coumarins and bioflavonoids. 3nB acts as a direct inhibitor of <i>xanthine oxidase</i>—the core enzyme responsible for converting hypoxanthine and xanthine into <i>uric acid</i>—thereby slowing overproduction of circulating uric acid and helping prevent crystallization of needle-like monosodium urate in peripheral joint spaces; concurrently, volatile oils shift osmotic gradients across renal tubules to accelerate fluid and metabolic waste clearance while maintaining potassium boundaries.</p>
+      </div>
+    </div>
+
+    <!-- SECTION I: MECHANISM ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// I. mechanism of action</div>
+      <ul>
+        <li><b>Xanthine Oxidase and Uric Acid Synthesis Blockade (3nB):</b> Systemically absorbed 3-n-butylphthalide enters hepatic circulation. At the cellular level, 3nB acts as a direct inhibitor of <i>xanthine oxidase</i>—the core enzyme responsible for converting hypoxanthine and xanthine into <i>uric acid</i>. By downregulating this enzyme, celery seed slows the overproduction of circulating uric acid, helping to prevent the systemic saturation that leads to the crystallization of needle-like monosodium urate in peripheral joint spaces.</li>
+        <li><b>Aquaporin Infiltration and Renal Fluid Clearance:</b> Concurrently, the volatile oils travel through renal pathways, shifting the osmotic gradient across the renal tubules to accelerate fluid and metabolic waste clearance without flushing out natural potassium boundaries.</li>
+        <li><b>Myotropic Calcium Channel Damping:</b> The phthalide matrix blocks extracellular calcium ion influx across vascular smooth muscle cells, gently relaxing peripheral blood vessel walls.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION II: PROCESSING ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// II. kitchen processing</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Phototoxic Coumarin Overload & Medication Accumulation</div>
+        <ul>
+          <li><strong>CRITICAL PHARMACOLOGICAL WARNING:</strong> <em>Apium graveolens</em> seeds contain linear furanocoumarins. <strong>Consuming massive unmeasured dosages of celery seed extracts can trigger severe phototoxicity, where exposure to sunlight causes intense, localized blistering skin burns (phytophotodermatitis).</strong> Furthermore, celery seed components can mildly inhibit specific liver cytochrome P450 enzymes. <strong>This can unpredictably spike blood concentrations of prescription medications, risking toxic accumulation in your system.</strong> Strict adherence to exact dry-weight thresholds is mandatory.</li>
+        </ul>
+      </div>
+      <ol class="db-steps">
+        <li><b>Dosing:</b> Weigh exactly 1.5 grams of whole, dried <em>Apium graveolens</em> seeds (~1 flat teaspoon). Do not exceed this boundary per preparation cycle; over-concentration can irritate the lining of the kidneys or trigger severe stomach heartburn.</li>
+        <li><b>The Mandatory Fresh-Cracking Rule:</b> Place the whole seeds into a manual spice mill or heavy mortar and pestle and crack them coarsely <em>immediately before extraction</em>. <strong>CRITICAL RESIN LAW:</strong> <em>Never use pre-ground celery powder from a jar.</em> The highly active phthalides oxidize and evaporate within days of grinding, leaving behind a flat powder stripped of its metabolic-modulating value.</li>
+        <li><b>Hydro-Thermal Solvent Separation:</b> Scraping the freshly cracked seed fragments directly into a ceramic mug. Pour exactly 150 mL of water (H<sub>2</sub>O) heated to a controlled threshold of <strong>exactly 90°C to 95°C</strong> directly over the seeds.</li>
+        <li><b>The Sealed Condensation Window:</b> Immediately seal the mug tightly with a heavy saucer to trap the volatile vapors. Let the mixture sit undisturbed to steep for <strong>exactly 12 minutes</strong>. As the active oils vaporize, they will hit the underside of the heavy lid, condense, and fall back down into the liquid solvent.</li>
+        <li><b>Separation:</b> Strain the clear, pale amber-yellow, intensely aromatic and distinctly salty/savory liquid through a fine wire mesh filter into a clean cup. Drink warm. Consume up to twice daily strictly <em>following</em> a solid meal containing starches or fats to buffer the stomach lining.</li>
+      </ol>
+    </div>
+
+    <!-- SECTION III: INDICATIONS ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// III. clinical indications</div>
+      <ul>
+        <li><b>Dietary Adjuvant for Boundary Uric Acid Optimization:</b> Systemic xanthine oxidase inhibition to help maintain normal, healthy uric acid metabolism during phases of rich protein intake.</li>
+        <li><b>Minor Temporary Fluid Retention Support:</b> Brief renal fluid clearance to help flush out transient, minor bloating brought on by high-sodium dietary shifts.</li>
+        <li><b>Post-Exertional Minor Joint Stiffness:</b> Systemic support to help calm localized minor, self-limiting joint achiness and stiffness following intensive workouts.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION IV: TRIAGE ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// IV. the allopathic triage hardline</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Critical Warning</div>
+        <ul>
+          <li><b>Presence of an Acute Septic or Gouty Joint Emergency:</b> Absolute contraindication if a joint presents sudden, blinding pain, hot purple-red skin swelling, localized distortion, or a high fever (>38.5°C). Celery seed is entirely unequipped to manage an acute gout attack or septic arthritis; seek immediate emergency medical treatment.</li>
+          <li><b>Severe Unexplained Lower Extremity Swelling (Edema):</b> Absolute safety rule: <strong>Never attempt to treat sudden, tight, shiny, or pitting leg or ankle swelling with home diuretic seeds.</strong> This symptom signals advanced systemic failure—such as Congestive Heart Failure (CHF) or Chronic Kidney Disease (CKD)—and requires immediate intensive prescription medical care.</li>
+          <li><b>Concomitant Pharmaceutical Diuretic Therapy:</b> Absolute safety rule: <strong>Never consume celery seed extractions if you take prescription water pills.</strong> This includes Furosemide or Hydrochlorothiazide. Combining them poses an imminent risk of causing a sudden drop in blood pressure and dangerous electrolyte shifts.</li>
+          <li><b>Apiaceae Family Cross-Sensitivity Explosion:</b> Discontinue use immediately if consumption triggers sudden widespread skin hives, lip swelling, or breathing difficulty, signaling cross-sensitization in individuals highly allergic to celery, carrots, fennel, or parsley.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Entry 79: Artemisia absinthium ── -->
+<section class="db-entry reveal" id="entry-wormwood">
+  <div class="wrap">
+    <div class="db-entry-head">
+      <div class="db-entry-num">79</div>
+      <div>
+        <div class="db-sci-name">Artemisia absinthium · L. · Asteraceae</div>
+        <h2>Wormwood</h2>
+        <div class="db-names">
+        <span class="db-name-pair"><span class="db-name-lang">HI</span><span class="db-name-val">अफ़सन्तीन · Afsanteen</span></span>
+        </div>
+        <p class="db-summary">The silver-gray, silky-haired leaves and small yellow flower heads of <em>Artemisia absinthium</em> synthesize an exceptionally potent, lipophilic bitter matrix dominated by sesquiterpene lactones, primarily <b>absinthin</b> (0.2–0.3%)—among the most bitter substances known—balanced by a volatile essential oil fraction (0.2–1.5%) rich in the monoterpene ketones <b>α- and β-thujone</b>. Absinthin binds T2R bitter taste receptors with extreme affinity, triggering parasympathetic reflex surges in salivary, gastric acid, pepsin, and pancreatic enzyme secretions; systemically, thujone acts as a GABA-A receptor antagonist, temporarily lowering neuronal firing thresholds to induce central nervous system stimulation.</p>
+      </div>
+    </div>
+
+    <!-- SECTION I: MECHANISM ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// I. mechanism of action</div>
+      <ul>
+        <li><b>The Extreme T2R Bitter Gustatory Axis (Absinthin):</b> Ingested absinthin molecules target the <i>T2R bitter taste receptors</i> cluster located on the posterior third of the tongue and throughout the upper gastric mucosa. This intense binding triggers a rapid parasympathetic reflex arc via the glossopharyngeal and vagus nerves, commanding an immediate surge in salivary, gastric acid, pepsin, and pancreatic enzyme secretions. Concurrently, it drives hepatic bile synthesis (choleretic effect) and gallbladder emptying, effectively accelerating gastric emptying to sweep away stagnated food masses.</li>
+        <li><b>GABA-A Receptor Antagonism (Thujone Neuro-Modulation):</b> Systemically absorbed thujone molecules cross the blood-brain barrier. At the central nervous system level, thujone acts as a competitive antagonist at <i>GABA-A (Gamma-Aminobutyric Acid type A) receptors</i>. By blocking this primary inhibitory gateway, thujone temporarily lowers the threshold for neuronal firing, which can induce central nervous system stimulation.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION II: PROCESSING ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// II. kitchen processing</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Thujone Neurotoxicity & Seizure Threshold Depression</div>
+        <ul>
+          <li><strong>CRITICAL CENTRAL NERVOUS SYSTEM WARNING:</strong> <em>Artemisia absinthium</em> contains <b>thujone</b>, a known, dose-dependent neurotoxin. <strong>Consuming large therapeutic amounts, raw essential oils, or using wormwood extractions continuously over an extended period blocks GABA pathways to trigger acute muscle twitching, severe hallucinations, deep disorientation, and violent epileptiform convulsions (seizures).</strong> Furthermore, it can cause direct renal tubular damage. Strict adherence to exact dry-weight thresholds is mandatory. <strong>Wormwood must never be used continuously for more than 2 consecutive weeks, and is completely banned for anyone with a personal or family history of epilepsy.</strong></li>
+        </ul>
+      </div>
+      <ol class="db-steps">
+        <li><b>Dosing:</b> Weigh exactly 1 gram of thoroughly dried <em>Artemisia absinthium</em> leaf and flower fragments. Do not exceed this boundary under any circumstances per preparation cycle to prevent neurotoxic accumulation or severe stomach lining burning.</li>
+        <li><b>Mechanical Opening:</b> Crumble the brittle, silvery leaves gently between clean fingers directly into a ceramic mug to fracture the fine trichomes where the bitter lactones and volatile oils are sequestered.</li>
+        <li><b>Hydro-Thermal Solvent Separation:</b> Pour exactly 150 mL of water (H<sub>2</sub>O) heated to a controlled threshold of <strong>exactly 90°C to 95°C</strong> directly over the herb.</li>
+        <li><b>THE STEEP TIME CAPSULE:</b> <em>Never boil wormwood continuously and never use an uncovered rolling boil (100°C).</em> Sub-boiling water provides the ideal thermal balance to draw out the highly water-soluble bitter absinthin while keeping the extraction of the highly volatile thujone within safe limits. Fit a heavy saucer tightly over the mug to trap steam and let it steep for <strong>exactly 5 to 7 minutes</strong> (do not let it over-steep, or the intense bitterness will become unmanageable).</li>
+        <li><b>Separation:</b> Strain the clear, light yellow-green, intensely bitter liquid through a fine wire sieve. <strong>CONSUMPTION PROTOCOL:</strong> <em>Allow it to cool to warm and drink rapidly in 2 or 3 quick gulps; do not slowly sip it.</em> Always consume this extract strictly 15 minutes <em>before</em> a heavy meal to prime the digestive secretomotor loops.</li>
+      </ol>
+    </div>
+
+    <!-- SECTION III: INDICATIONS ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// III. clinical indications</div>
+      <ul>
+        <li><b>Acute Postprandial Upper Digestive Sluggishness:</b> Extreme bitter secretomotor support to help stimulate sluggish gastric acid output, eliminate heavy post-meal upper abdominal pressure, and clear flatulence.</li>
+        <li><b>Transient Loss of Appetite Support:</b> Short-term sensory priming to help activate metabolic appetite loops during brief periods of stress-induced digestive apathy.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION IV: TRIAGE ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// IV. the allopathic triage hardline</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Critical Warning</div>
+        <ul>
+          <li><b>History of Seizures, Epilepsy, or Neuro-Chemical Instability:</b> Absolute contraindication. If consumption is followed by localized muscle twitching, severe dizziness, visual buzzing, or sudden confusion, signaling an immediate threat to the central nervous system.</li>
+          <li><b>Active Gastric or Duodenal Peptic Ulcers:</b> Absolute contraindication. Wormwood aggressively drives up hydrochloric stomach acid production, which can rapidly erode raw, exposed tissue linings in the stomach wall, intensifying bleeding risks.</li>
+          <li><b>Active Gallstone or Cholelithiasis Disease:</b> Absolute contraindication. Forcing rapid smooth muscle contractions against a hidden, obstructing stone can cause an acute bile duct rupture, jaundice, or life-threatening biliary pancreatitis.</li>
+          <li><b>Pregnancy and Embryotoxic Uterine Risk:</b> Absolute contraindication for pregnant individuals. Thujone possesses documented abortifacient properties, capable of stimulating uterine smooth muscle contractions and exerting direct embryotoxic effects that threaten gestational stability.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Entry 80: Asclepias tuberosa ── -->
+<section class="db-entry reveal" id="entry-butterfly-weed">
+  <div class="wrap">
+    <div class="db-entry-head">
+      <div class="db-entry-num">80</div>
+      <div>
+        <div class="db-sci-name">Asclepias tuberosa · L. · Asclepiadaceae</div>
+        <h2>Butterfly Weed</h2>
+        <p class="db-summary">The tough, deep-branching taproots of <em>Asclepias tuberosa</em> synthesize a complex cardenolide-glycoside and mucilage matrix. This profile is dominated by <b>cardenolides (cardiac glycosides)</b>—asclepin, tuberosin, and syriogenin—structurally balanced by dense water-soluble <b>mucilage polysaccharides</b>, amino acids, and bioflavonoids. Ingested cardenolide fractions initiate vagal reflex arcs that command bronchial secretory cells to drop structural viscosity, liquefying thick, sticky phlegm; when consumed as hot thermal extraction, active compounds relax peripheral blood vessel smooth muscle walls to drive localized capillary blood flow (hyperemia) and prompt eccrine glands to increase sweat output for natural diaphoretic cooling.</p>
+      </div>
+    </div>
+
+    <!-- SECTION I: MECHANISM ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// I. mechanism of action</div>
+      <ul>
+        <li><b>Secretolytic Pulmonary Vagal Reflex (Cardenolides):</b> When ingested, trace cardenolide fractions interact with localized T2R and mucosal sensors along the gastric floor. This minor, controlled tissue stimulus initiates an efferent vagal reflex arc that directly commands the secretory cells within the bronchial tree to drop their structural viscosity. This action rapidly liquefies thick, sticky phlegm within the airways, making it significantly easier to clear.</li>
+        <li><b>Systemic Diaphoretic Pore Relaxation (Hyperemia):</b> When consumed as a hot thermal extraction, the active compounds work alongside the autonomic nervous system to relax the smooth muscle walls of peripheral blood vessels. This drives localized capillary blood flow (hyperemia) to open up skin pores and prompt the eccrine glands to increase sweat output, assisting the body's natural diaphoretic cooling loops during acute seasonal heat spikes.</li>
+        <li><b>Intercellular Sodium-Potassium ATPase Inhibition:</b> At high concentrations, the cardenolides inhibit the cell membrane Na<sup>+</sup>/K<sup>+</sup>-ATPase pump, which can alter cardiac muscle contraction dynamics.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION II: PROCESSING ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// II. kitchen processing</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Cardenolide Toxicity & Membrane Antidote Boundaries</div>
+        <ul>
+          <li><strong>CRITICAL CARDIOVASCULAR WARNING:</strong> <em>Asclepias tuberosa</em> contains cardiac glycosides. <strong>Consuming massive unmeasured dosages, using the root raw, or continuing usage over an extended period can severely inhibit the Na<sup>+</sup>/K<sup>+</sup>-ATPase pump, triggering acute cardiac arrhythmias (irregular heartbeats), severe slowing of the pulse (bradycardia), continuous vomiting, cold sweats, and fatal heart failure.</strong> Strict adherence to exact dry-weight thresholds is mandatory. <strong>Pleurisy root must never be used continuously for more than 5 consecutive days, and is completely banned for anyone taking prescription heart medications.</strong></li>
+        </ul>
+      </div>
+      <ol class="db-steps">
+        <li><b>Dosing:</b> Weigh exactly 1 gram of thoroughly dried, chopped <em>Asclepias tuberosa</em> root pieces. Do not exceed this boundary under any circumstances per preparation cycle to prevent toxic cardenolide accumulation or severe heart rhythm disturbances.</li>
+        <li><b>Mechanical Opening:</b> Grind the tough, fibrous root segments through a manual spice mill or crush them firmly in a heavy steel mortar and pestle to reduce them to a coarse, gravelly sawdust. This maximizes the open surface area available to the solvent.</li>
+        <li><b>Hydro-Thermal Solvent Separation:</b> Place the milled root grains into a small stainless steel saucepan. Add exactly 200 mL of clean water (H<sub>2</sub>O). Bring the fluid to a rapid, rolling boil (100°C) over high heat.</li>
+        <li><b>THE CLOSED SIMMER ROOT LAW:</b> <em>As soon as the water boils, immediately drop the heat to maintain a steady, gentle simmer (85°C to 90°C).</em> Fit a heavy lid tightly over the pan to prevent fluid evaporation and lock in the volatile fractions. Maintain this simmering loop for <strong>exactly 15 minutes</strong>. Because pleurisy root tissue is exceptionally dense and woody, a simple brief steeping cycle cannot break free the deep-seated cardenolides; a sustained, closed thermal simmer is mandatory.</li>
+        <li><b>Separation:</b> Remove the pan from the heat source. Strain the hot, light yellowish-amber, earthy liquid through a fine wire mesh filter into a clean mug, discarding the spent fibers completely. Let it cool until warm. Drink slowly in small, measured sips strictly <em>following</em> a solid meal to minimize any localized upper stomach irritation.</li>
+      </ol>
+    </div>
+
+    <!-- SECTION III: INDICATIONS ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// III. clinical indications</div>
+      <ul>
+        <li><b>Adjuvant for Seasonal Diaphoretic Cooling:</b> Short-term support to help stimulate mild, natural peripheral vasodilation and sweating during early, minor, self-limiting winter chills.</li>
+        <li><b>Subacute Bronchial Catarrh Fluidics:</b> Short-term support to help thin out and comfortably clear small amounts of sticky, stubborn phlegm from the upper airways during the closing days of a seasonal cold.</li>
+        <li><b>Symptomatic Relief of Minor Intercostal Muscle Tightness:</b> Mild smooth muscle relaxation to help soothe minor, transient chest wall achiness brought on by prolonged coughing fits, <em>strictly where deep lung pathographies are absent.</em></li>
+      </ul>
+    </div>
+
+    <!-- SECTION IV: TRIAGE ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// IV. the allopathic triage hardline</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Critical Warning</div>
+        <ul>
+          <li><b>Concomitant Critical Heart Medication Therapy:</b> Absolute safety rule: <strong>Never consume pleurisy root if you take prescription cardiac drugs.</strong> This includes Digoxin, beta-blockers, or calcium channel blockers. Combining them poses an imminent risk of causing an accidental drug interaction, severe heart slowing, or toxic cardiac arrhythmias.</li>
+          <li><b>Onset of Acute Lower Respiratory Distress (Pleurisy/Pneumonia):</b> Absolute emergency criteria: If chest pain is sharp, stabbing, intensifies noticeably when breathing in deeply or coughing, or is accompanied by a sudden high fever (>38.5°C), severe shortness of breath, or coughing up rust-colored sputum. These are primary signals of acute pleurisy, bacterial pneumonia, or a pulmonary embolism, requiring immediate emergency department stabilization, not home root teas.</li>
+          <li><b>Signs of Active Cardiovascular Over-Dosage:</b> Discontinue use immediately and seek emergency care if consumption is followed by a sudden slowing of the pulse (<55 bpm), a fluttering feeling in the chest, persistent nausea, vomiting, or visual disturbances (such as a yellowish-green tint around objects).</li>
+          <li><b>Pregnancy and Gestational Restriction:</b> Absolute contraindication for pregnant or nursing individuals. The active cardenolides can cross tissue barriers and exert potential uterine-stimulating and fetal toxic profiles that threaten gestational stability.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Entry 81: Astragalus membranaceus ── -->
+<section class="db-entry reveal" id="entry-astragalus">
+  <div class="wrap">
+    <div class="db-entry-head">
+      <div class="db-entry-num">81</div>
+      <div>
+        <div class="db-sci-name">Astragalus membranaceus · (Fisch.) Bunge · Fabaceae</div>
+        <h2>Astragalus</h2>
+        <p class="db-summary">The long, fibrous, tongue-depressor-like sliced taproots of <em>Astragalus membranaceus</em> synthesize a massive, high-molecular-weight defensive matrix dominated by water-soluble <b>astragalus polysaccharides (APS)</b> (astragalan and amonaran), lipophilic <b>steroidal saponins</b> (primarily <b>astragaloside IV</b>), and distinctive bioflavonoids. High-molecular-weight polysaccharides bind to TLR4 and Dectin-1 receptors on macrophages, dendritic cells, and T-lymphocytes to upregulate endogenous <i>interferon-gamma</i> and interleukins, optimizing immune surveillance capacity; concurrently, astragaloside IV stimulates endothelial nitric oxide synthase for mild vascular relaxation and supporting tissue microcirculation.</p>
+      </div>
+    </div>
+
+    <!-- SECTION I: MECHANISM ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// I. mechanism of action</div>
+      <ul>
+        <li><b>Macrophage and T-Cell Receptor Activation (APS):</b> Ingested high-molecular-weight polysaccharides cross the intestinal mucosal barrier via microfold (M) cells to interface directly with systemic immune tissues. At the cellular level, these long-chain polymers bind to specific pattern recognition receptors—specifically <i>Toll-like Receptor 4 (TLR4)</i> and Dectin-1—on the surfaces of macrophages, dendritic cells, and T-lymphocytes. This binding triggers a controlled signaling cascade that upregulates the synthesis of endogenous <i>interferon-gamma (IFN-γ)</i> and interleukins, optimizing the surveillance capacity of circulating white blood cells without initiating an inflammatory storm.</li>
+        <li><b>Endothelial Nitric Oxide Regulation (Astragaloside IV):</b> Concurrently, astragaloside IV fractions stimulate <i>endothelial nitric oxide synthase (eNOS)</i> within peripheral blood vessels, promoting mild vascular relaxation and supporting structural tissue microcirculation.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION II: PROCESSING ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// II. kitchen processing</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ The Long Thermal Polysaccharide Extraction Mandate</div>
+        <ul>
+          <li><strong>CRITICAL PROCESSING WARNING:</strong> The primary immune-modulating <b>astragalus polysaccharides (APS)</b> are locked deep within dense, highly fibrous, woody cell walls. <strong>Pouring boiling water over astragalus root slices and letting them steep like regular tea is completely useless; the water cannot penetrate the tough fibers, yielding a weak fluid stripped of its active polymers.</strong> Astragalus requires a sustained, high-heat thermal extraction (decoction) to break open the cell walls and dissolve the high-molecular-weight polysaccharides into the solvent.</li>
+        </ul>
+      </div>
+      <ol class="db-steps">
+        <li><b>Dosing:</b> Weigh exactly 6 grams of thoroughly dried <em>Astragalus membranaceus</em> root slices (~2 to 3 standard tongue-depressor-style strips). Do not exceed this boundary per preparation cycle to prevent mild temporary digestive fullness or bloating.</li>
+        <li><b>Mechanical Opening:</b> Cut the long, flat root strips into tiny, postage-stamp-sized pieces using clean kitchen shears. This exposes the cross-sections of the fibrous interior channels, maximizing the surface area available to the solvent.</li>
+        <li><b>Hydro-Thermal Solvent Separation:</b> Place the cut root pieces into a small stainless steel saucepan. Add exactly 300 mL of clean water (H<sub>2</sub>O). Bring the fluid to a rapid, rolling boil (100°C) over high heat.</li>
+        <li><b>THE EXTENDED TIMED SIMMER LOOP:</b> <em>As soon as the water boils, immediately drop the heat to maintain a steady, rolling simmer (85°C to 90°C).</em> Fit a heavy lid tightly over the pan to prevent fluid evaporation. Maintain this extraction loop for <strong>exactly 30 minutes</strong>. This continuous thermal window is mandatory to break down the dense cellulose matrices, allowing the water-soluble polysaccharides to fully unfurl and dissolve into the broth.</li>
+        <li><b>Separation:</b> Remove the pan from the heat source. Strain the hot, milky-yellow, sweetish, and distinctly bean-like (leguminous) broth through a fine wire mesh sieve into a clean mug, discarding the spent woody fibers completely. Allow it to cool until warm. Drink slowly. Consume early in the day, preferably <em>following</em> a solid breakfast.</li>
+      </ol>
+    </div>
+
+    <!-- SECTION III: INDICATIONS ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// III. clinical indications</div>
+      <ul>
+        <li><b>Prophylactic Seasonal Immune Support:</b> Long-term support to help optimize natural immune surveillance and baseline tissue defenses <em>prior</em> to the onset of the winter cold season.</li>
+        <li><b>Post-Exertional Vitality Recovery Support:</b> Mild systemic support to help reduce systemic physical fatigue and shorten recovery time following intensive athletic training or heavy manual labor.</li>
+        <li><b>Adjuvant Support for Normal Peripheral Circulation:</b> Secondary support to help maintain healthy blood flow to extremities during cold weather exposure.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION IV: TRIAGE ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// IV. the allopathic triage hardline</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Critical Warning</div>
+        <ul>
+          <li><b>Presence of an Active Autoimmune Disease:</b> Absolute contraindication if you have been diagnosed with an active autoimmune condition, such as Systemic Lupus Erythematosus (SLE), Rheumatoid Arthritis (RA), Multiple Sclerosis (MS), or Crohn's disease. Stimulating TLR4 and T-cell pathways can theoretically accelerate or worsen an auto-reactive immune attack on your own tissues.</li>
+          <li><b>Concomitant Immunosuppressant Therapy:</b> Absolute safety rule: <strong>Never consume astragalus extractions if you are taking prescription immunosuppressant drugs.</strong> This includes Cyclosporine, Tacrolimus, or daily high-dose Prednisone. Astragalus's immune-stimulating action can directly oppose and neutralize the action of these critical medications, risking organ transplant rejection or severe disease flare-ups.</li>
+          <li><b>Onset of an Acute High-Fever Emergency:</b> Do not use this herb at the sudden onset of an acute, high fever (>38.5°C) accompanied by severe shaking chills, chest pain, or rapid confusion. Acute infectious emergencies require immediate clinical diagnostic swabbing and targeted medical therapy, not chronic tonifying root broths.</li>
+          <li><b>Fabaceae Family Cross-Sensitivity Explosion:</b> Discontinue use immediately if consumption triggers a sudden widespread skin rash, hives, or swelling of the lips, indicating cross-sensitization in individuals highly allergic to peanuts, soy, or alfalfa.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Entry 82: Asparagus racemosus ── -->
+<section class="db-entry reveal" id="entry-shatavari">
+  <div class="wrap">
+    <div class="db-entry-head">
+      <div class="db-entry-num">82</div>
+      <div>
+        <div class="db-sci-name">Asparagus racemosus · Willd. · Asparagaceae</div>
+        <h2>Shatavari</h2>
+        <div class="db-names">
+        <span class="db-name-pair"><span class="db-name-lang">SA</span><span class="db-name-val">शतावरी · Shatavari</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">HI</span><span class="db-name-val">सतावर · Satawar</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">BN</span><span class="db-name-val">শতমূলী · Shatamuli</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">MR</span><span class="db-name-val">शतावरी · Shatavari</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">GU</span><span class="db-name-val">શતાવરી · Shatavari</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">PA</span><span class="db-name-val">ਸਤਾਵਰ · Satawar</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">TE</span><span class="db-name-val">శతావరి · Shatavari</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">KN</span><span class="db-name-val">ಶತಾವರಿ · Shatavari</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">ML</span><span class="db-name-val">ശതാവരി · Shatavari</span></span>
+        </div>
+        <p class="db-summary">The thick, tuberous roots of <em>Asparagus racemosus</em> synthesize a high-density steroidal and mucilaginous matrix dominated by water-soluble and lipophilic <b>steroidal saponins</b> (4–6%), structurally classified as <b>shatavarins</b> (Shatavarin I–IV), balanced by dense <b>mucilage polysaccharides</b>, essential minerals (zinc, calcium), and bioflavonoids. Shatavarins bind selectively to estrogen and progesterone receptors within the hypothalamus and pituitary to stabilize pulsatile <i>gonadotropin-releasing hormone (GnRH)</i> secretion, normalizing downstream <i>luteinizing hormone (LH)</i> and <i>follicle-stimulating hormone (FSH)</i> for monthly cycle regulation; water-soluble mucilages form a slippery hydro-gel patch that adheres to stomach lining to shield sensory nerve endings from mechanical friction and acid.</p>
+      </div>
+    </div>
+
+    <!-- SECTION I: MECHANISM ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// I. mechanism of action</div>
+      <ul>
+        <li><b>Hypothalamic-Pituitary-Gonadal (HPG) Axis Stabilization:</b> Ingested shatavarins act as structural neuro-endocrine modulators. At the systemic level, these steroidal saponins bind selectively to estrogen and progesterone receptors within the hypothalamus and pituitary gland, mimicking native hormonal compounds without driving erratic tissue proliferation. This binding stabilizes the pulsatile secretion of <i>gonadotropin-releasing hormone (GnRH)</i>, which directly normalizes downstream luteinizing hormone (LH) and follicle-stimulating hormone (FSH) secretion to help regulate monthly cycles.</li>
+        <li><b>The Viscoelastic Electrostatic Mucosal Shield (Demulcent):</b> Concurrently, the water-soluble mucilage polysaccharides hydrate rapidly in the stomach, forming a slippery <strong>physical hydro-gel patch</strong>. This gel adheres to raw epithelial cells along the stomach lining, shielding exposed, hyper-sensitive sensory nerve endings from mechanical friction and stomach acid to soothe localized tissue heat.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION II: PROCESSING ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// II. kitchen processing</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ The Lipophilic Extraction Law & Reckless Overloads</div>
+        <ul>
+          <li><strong>CRITICAL PROCESSING & METABOLIC WARNING:</strong> The primary therapeutic steroidal saponins (<b>shatavarins</b>) are highly complex, lipid-soluble molecules. <strong>If you boil shatavari root in plain, fat-free water, you will fail to extract these active compounds; they will remain trapped inside the root fibers, yielding a flat decoction stripped of its neuro-endocrine properties.</strong> To cleanly dissolve and carry the shatavarins, you must introduce a lipid carrier (such as whole milk or ghee). Furthermore, because of its dense mucilage, over-ingestion can cause acute upper digestive dampness, a heavy stomach feeling, and slow bowel motility.</li>
+        </ul>
+      </div>
+      <ol class="db-steps">
+        <li><b>Dosing:</b> Weigh exactly 3 grams of thoroughly dried <em>Asparagus racemosus</em> root fragments (~1 flat teaspoon). Do not exceed this boundary per preparation cycle to prevent mild temporary abdominal bloating or sluggish digestion.</li>
+        <li><b>Mechanical Opening:</b> Grind the tough, fibrous root fragments through a manual spice mill or crush them firmly in a heavy mortar and pestle to reduce them to a coarse, gravelly powder, maximizing surface area exposure.</li>
+        <li><b>The Lipid Solvent Selection:</b> Measure exactly 150 mL of clean whole milk (or 150 mL of water mixed with 1 teaspoon of grass-fed ghee). Place the lipid vehicle and the milled root powder directly into a small stainless steel saucepan, whisking thoroughly to form an emulsion.</li>
+        <li><b>The Thermal Extraction Window:</b> Bring the liquid to a gentle, rolling boil (100°C) over medium heat. <em>As soon as it boils, immediately drop the heat to maintain a steady, bubbling simmer (85°C to 90°C).</em> Fit a heavy lid tightly over the pan to prevent fluid loss and maintain this loop for <strong>exactly 15 minutes</strong>. This sustained thermal window forces the complex shatavarins to break free from the cell walls and bind tightly with the dissolved lipid droplets.</li>
+        <li><b>Separation:</b> Remove the pan from the heat. Pour the hot, opaque cream-colored liquid through a fine wire mesh sieve into a mug, discarding the spent root sediment completely. Allow it to cool until warm. Drink slowly in measured sips strictly <em>following</em> a meal to maximize systemic lipid absorption.</li>
+      </ol>
+    </div>
+
+    <!-- SECTION III: INDICATIONS ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// III. clinical indications</div>
+      <ul>
+        <li><b>Adjuvant for Minor Menstrual Cycle Irregularities:</b> Short-term neuro-endocrine support to help stabilize temporary, self-limiting baseline shifts in monthly cycle lengths.</li>
+        <li><b>Symptomatic Soothing of Minor Menstrual Cramps:</b> Mild smooth muscle relaxation to help soothe minor, transient lower abdominal tightening during normal menstrual phases.</li>
+        <li><b>Transient Postprandial Gastric Discomfort:</b> Demulcent protection to temporarily coat, hydrate, and soothe mild, temporary burning sensations in the stomach lining after eating spicy food.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION IV: TRIAGE ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// IV. the allopathic triage hardline</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Critical Warning</div>
+        <ul>
+          <li><b>Presence of an Estrogen-Dependent Malignancy:</b> Absolute contraindication if you have a current diagnosis or personal history of estrogen-receptor-positive (ER+) breast cancer, ovarian cancer, uterine fibroids, or advanced endometriosis. While shatavari is a modulator, sensitive reproductive tissues undergoing diagnostic triage must not be exposed to unstandardized steroidal extractions.</li>
+          <li><b>Onset of Severe Abnormal Uterine Bleeding:</b> Discontinue use immediately if a minor cycle shift turns into sudden, continuous flooding, large blood clots, bleeding between cycles, or a sudden cessation of periods accompanied by sharp, localized lower abdominal guarding, signaling a potential ectopic pregnancy or structural uterine emergency.</li>
+          <li><b>Severe Unexplained Fluid Retention (Edema):</b> Absolute safety rule: <strong>Never attempt to consume shatavari if you have tight, shiny swelling in your ankles or legs brought on by heart or kidney failure.</strong> This herb can promote mild fluid accumulation due to its heavy, nutritive nature and is completely contraindicated in compromised cardiac or renal pathways.</li>
+          <li><b>Asparagaceae Family Cross-Sensitivity Explosion:</b> Discontinue use immediately if consumption triggers a sudden widespread skin rash, hives, or swelling of the lips, indicating cross-sensitization in individuals highly allergic to fresh asparagus shoots.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Entry 83: Baptisia tinctoria ── -->
+<section class="db-entry reveal" id="entry-wild-indigo">
+  <div class="wrap">
+    <div class="db-entry-head">
+      <div class="db-entry-num">83</div>
+      <div>
+        <div class="db-sci-name">Baptisia tinctoria · (L.) R.Br. · Fabaceae</div>
+        <h2>Wild Indigo</h2>
+        <p class="db-summary">The woody subterranean roots and blackening tissue of <em>Baptisia tinctoria</em> synthesize a potent chemical defense matrix dominated by toxic <b>quinolizidine alkaloids</b> (cytisine, anagyrine, baptifoline), water-soluble <b>isoflavones</b> (baptisin, baptigenin), and specialized high-molecular-weight polysaccharides. Cytisine acts as high-affinity partial agonist at nicotinic acetylcholine receptors (α₄β₂ nAChRs) to drive short-lived autonomic stimulation followed by stabilizing blockade; at micro-dose levels, polysaccharides interface with mucosal immune pathways to drive controlled upregulation of macrophage phagocytosis and localized lymphatic clearance response, cooling stagnant tissue heat and reducing mucosal swelling. Razor-thin safety margin: strict micro-dosing (0.5g) as oral-rinse/gargle only, never swallowed.</p>
+      </div>
+    </div>
+
+    <!-- SECTION I: MECHANISM ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// I. mechanism of action</div>
+      <ul>
+        <li><b>Nicotinic Acetylcholine Receptor Agonism (Cytisine):</b> Systemically absorbed cytisine acts as a high-affinity <i>partial agonist at nicotinic acetylcholine receptors (α₄β₂ nAChRs)</i> within the nervous system. By binding directly to these sites, it mimics nicotine to drive an early, short-lived stimulation of autonomic ganglia, followed rapidly by a competitive, stabilizing blockade that drops down baseline nerve signaling.</li>
+        <li><b>Localized Reticuloendothelial & Lymphatic Surveillance Spiking:</b> At micro-dose levels, the water-soluble polysaccharides interface with mucosal immune interfaces. This contact drives a controlled upregulation in macrophage phagocytosis and triggers a localized, rapid clearance response through the lymphatic drainage network, cooling down stagnant tissue heat and reducing localized swelling along raw mucous membranes.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION II: PROCESSING ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// II. kitchen processing</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Toxic Quinolizidine Resin Breakdowns & The Micro-Limit</div>
+        <ul>
+          <li><strong>CRITICAL BIOLOGICAL WARNING:</strong> <em>Baptisia tinctoria</em> is a high-potency systemic toxin with a razor-thin safety margin. <strong>Ingesting more than a fraction of a gram of wild indigo root causes an immediate toxicological crisis characterized by violent projectile vomiting, severe burning in the stomach, continuous watery diarrhea, rapid pulse (tachycardia), motor paralysis, and fatal respiratory failure.</strong> Home extractions must be kept strictly to precise micro-doses, and are restricted entirely to brief, temporary topical or oral-rinse protocols. <strong>Never consume wild indigo root as a standard drinking beverage or daily tonifying tea.</strong></li>
+        </ul>
+      </div>
+      <ol class="db-steps">
+        <li><b>Dosing:</b> Weigh exactly 0.5 grams (500 milligrams) of thoroughly dried, chopped <em>Baptisia tinctoria</em> root pieces. Do not exceed this boundary under any circumstances per preparation cycle; keeping to this hard weight limit prevents accidental ingestion of a lethal cytisine payload.</li>
+        <li><b>Mechanical Opening:</b> Crush the tough, woody root pieces firmly using a heavy iron mortar and pestle to reduce them to a coarse, splintery sawdust. This maximizes surface area exposure to the liquid solvent.</li>
+        <li><b>Hydro-Thermal Solvent Separation:</b> Place the milled root grains into a small stainless steel saucepan. Add exactly 150 mL of clean water (H<sub>2</sub>O). Bring the fluid to a rapid, rolling boil (100°C) over high heat.</li>
+        <li><b>THE EXTENDED SIMMER TOXIC CONTAINMENT:</b> <em>As soon as the water boils, immediately drop the heat to maintain a steady, gentle simmer (85°C to 90°C).</em> Fit a heavy lid tightly over the pan to block fluid evaporation. Maintain this loop for <strong>exactly 15 minutes</strong>. Because wild indigo root tissue is exceptionally dense and woody, a simple steeping cycle is completely useless; a brief, closed thermal simmering window is required to draw out the active fractions.</li>
+        <li><b>Separation:</b> Remove the pan from the heat source. Strain the clear, dark yellowish-brown, intensely bitter and pungent liquid through a fine wire mesh filter <em>lined with a double layer of paper coffee filters</em> to catch all sediment. Discard the spent root fibers completely. Let it cool until room temperature (20°C).</li>
+        <li><b>Application:</b> Use exclusively as a targeted oral mouth rinse or gargle for <strong>exactly 30 seconds</strong>, then <strong>spit it out completely into a sink; never swallow a single drop of this liquid.</strong> Repeat up to twice daily for a maximum of 3 consecutive days, then permanently cease usage.</li>
+      </ol>
+    </div>
+
+    <!-- SECTION III: INDICATIONS ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// III. clinical indications</div>
+      <ul>
+        <li><b>Minor Superficial Mouth & Gum Irritation:</b> Localized astringent and immune-stimulating support to help rinse and clean raw, minor gums following routine dental cleaning, <em>used strictly as a spit-out mouthwash.</em></li>
+        <li><b>Minor Superficial Sore Throat Support:</b> Brief topical gargle support to help cool down minor, self-limiting scratchiness in the back of the mouth caused by dust exposure.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION IV: TRIAGE ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// IV. the allopathic triage hardline</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Critical Warning</div>
+        <ul>
+          <li><b>Signs of Accidental Internal Ingestion:</b> If any wild indigo rinse is accidentally swallowed, leading to a sudden onset of violent nausea, vomiting, intense cold sweats, muscle twitching, dizziness, or a racing pulse. This is an absolute toxicological emergency; seek immediate hospital emergency room care and poison control intervention.</li>
+          <li><b>Signs of an Advanced Obstructive Pharyngeal Infection:</b> Absolute emergency criteria: If a sore throat is accompanied by a high fever (>38.5°C), severe difficulty swallowing even saliva, an inability to open the mouth fully (trismus), or asymmetric swelling of the tonsils, signaling a peritonsillar abscess or severe bacterial strep infection requiring immediate prescription antibiotics and airway monitoring.</li>
+          <li><b>Pregnancy and Uterine Contraction Risk:</b> Absolute contraindication. This material must never be handled or utilized in any capacity by pregnant individuals due to the imminent risk of systemic alkaloid toxicosis and uterine smooth muscle stimulation.</li>
+          <li><b>Presence of Underlying Cardiovascular Disease:</b> Completely banned for anyone diagnosed with structural heart defects, cardiac arrhythmias, or unmanaged high blood pressure, as the cytisine fractions can sharply spike blood pressure if absorbed transmucosally.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Entry 84: Berberis vulgaris ── -->
+<section class="db-entry reveal" id="entry-barberry">
+  <div class="wrap">
+    <div class="db-entry-head">
+      <div class="db-entry-num">84</div>
+      <div>
+        <div class="db-sci-name">Berberis vulgaris · L. · Berberidaceae</div>
+        <h2>Barberry</h2>
+        <p class="db-summary">The bright, sulfur-yellow inner bark of the roots and stems of <em>Berberis vulgaris</em> synthesizes a highly localized, intense isoquinoline alkaloid matrix dominated by the water-soluble quaternary ammonium salt <b>berberine</b> (1.5–3.0%), structurally balanced by secondary alkaloids (berbamine, oxyacanthine, magnoflorine) and condensed tannins. Berberine interfaces with T2R bitter taste receptors to trigger parasympathetic vagal reflex commanding liver bile acceleration (choleretic) and gallbladder smooth muscle contraction (cholagogue); systemically, it triggers phosphorylation of <i>AMP-activated protein kinase (AMPK)</i> to downregulate hepatic gluconeogenesis and upregulate <i>GLUT4 glucose transporter</i> expression on skeletal muscle for independent glucose uptake; luminally, it binds bacterial DNA to inhibit RNA polymerase and disrupt pathogen duplication.</p>
+      </div>
+    </div>
+
+    <!-- SECTION I: MECHANISM ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// I. mechanism of action</div>
+      <ul>
+        <li><b>The T2R Gustatory Choleretic Drive:</b> Ingested berberine interfaces directly with <i>T2R bitter taste receptors</i> on the tongue and upper gastric mucosa. This interaction triggers a rapid parasympathetic vagal reflex that commands the liver to accelerate bile secretion (choleretic effect) and prompts smooth muscle contraction of the gallbladder (cholagogue effect) to clear upper digestive stagnation and emulsify heavy fats.</li>
+        <li><b>AMPK Activation & Cellular Glucose Management:</b> At the systemic level, absorbed berberine fragments penetrate cells to trigger the phosphorylation of <i>AMP-activated protein kinase (AMPK)</i>. AMPK acts as the body's master metabolic regulator. Activating this enzyme downregulates hepatic gluconeogenesis (glucose production in the liver) and upregulates the expression of <i>GLUT4 glucose transporter molecules</i> on skeletal muscle cells, driving cellular glucose uptake independently of insulin pathways.</li>
+        <li><b>Luminal Microorganism Structural Disruption:</b> Within the bowel lumen, berberine acts as a direct, non-specific antimicrobial agent, binding to bacterial DNA and inhibiting RNA polymerase to slow down pathogen duplication.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION II: PROCESSING ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// II. kitchen processing</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Enteric Cramping & The Potent Bitter Emesis Gauntlet</div>
+        <ul>
+          <li><strong>CRITICAL BIOLOGICAL WARNING:</strong> <em>Berberis vulgaris</em> inner bark is exceptionally bitter and carries strong prokinetic properties. <strong>Consuming an over-concentrated extraction or exceeding dry-weight thresholds triggers acute upper gastric irritation, immediate projectile vomiting, and violent, painful lower intestinal cramping.</strong> Furthermore, because berberine displaces bilirubin from albumin binding sites, it presents extreme toxicity vectors under specific developmental conditions. Strict adherence to exact dry-weight thresholds is mandatory, and continuous internal usage must never exceed 2 consecutive weeks.</li>
+        </ul>
+      </div>
+      <ol class="db-steps">
+        <li><b>Dosing:</b> Weigh exactly 1.5 grams of thoroughly dried <em>Berberis vulgaris</em> root or stem bark segments. Do not exceed this limit per preparation cycle; maintaining this precise weight prevents severe, unmanaged nausea and abdominal spasms.</li>
+        <li><b>Mechanical Opening:</b> Crush the brittle, vibrant yellow bark pieces firmly inside a heavy mortar and pestle to reduce them to a coarse, granular sawdust, maximizing surface area exposure to the liquid solvent.</li>
+        <li><b>Hydro-Thermal Solvent Separation:</b> Scraping the yellow grains directly into a small stainless steel saucepan. Add exactly 200 mL of clean water (H<sub>2</sub>O). Bring the fluid to a rapid, rolling boil (100°C) over high heat.</li>
+        <li><b>THE SHORT THERMAL ROOT LOOP:</b> <em>As soon as the water boils, immediately lower the heat to a gentle simmer (85°C to 90°C) and fit a heavy lid tightly over the pan.</em> Maintain this extraction loop for <strong>exactly 10 minutes</strong>. Because berberine salts dissolve efficiently in hot water, this condensed simmering window successfully extracts the therapeutic alkaloids without pulling out overwhelming quantities of the plant's harsh, astringent tannins.</li>
+        <li><b>Separation:</b> Remove from heat. Strain the clear, intensely yellow, intensely bitter liquid through a fine wire mesh filter into a clean mug, discarding the spent yellow bark fibers completely. Let it cool until warm.</li>
+        <li><b>Application:</b> Drink warm. For digestive sluggishness or metabolic priming, consume rapidly in small gulps strictly 15 minutes <em>before</em> a main meal. Always follow with a small glass of fresh water to clear the bitter taste and protect the throat lining.</li>
+      </ol>
+    </div>
+
+    <!-- SECTION III: INDICATIONS ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// III. clinical indications</div>
+      <ul>
+        <li><b>Postprandial Biliary Sluggishness:</b> Bitter secretomotor support to help accelerate bile flow, settle a heavy feeling in the stomach, and eliminate upper abdominal bloating after high-fat meals.</li>
+        <li><b>Transient Uncomplicated Diarrheal Consolidation:</b> Brief luminal support to help ease temporary loose stools brought on by sudden, unhygienic water or dietary shifts during travel.</li>
+        <li><b>Dietary Adjuvant for Baseline Metabolic Priming:</b> Short-term metabolic support to help optimize normal cellular glucose uptake patterns when paired with structured dietary modifications.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION IV: TRIAGE ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// IV. the allopathic triage hardline</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Critical Warning</div>
+        <ul>
+          <li><b>Active Gallbladder Obstruction or Acute Cholecystitis:</b> Absolute contraindication. Never consume barberry extracts if you have known gallstones, an active bile duct blockage, or severe pain in the upper right quadrant of your abdomen. Forcing gallbladder contractions against a physical stone obstruction can cause an acute bile duct rupture or fatal biliary pancreatitis.</li>
+          <li><b>Pregnancy, Lactation, and the Neonatal Kernicterus Ban:</b> Absolute safety rule: <strong>Never handle or consume barberry extracts if pregnant, nursing, or administering to infants.</strong> Berberine passes freely through placental and breastmilk barriers. In fetuses and neonates, it aggressively displaces bilirubin from blood proteins, forcing the free bilirubin into the brain to cause <strong>kernicterus</strong>—an irreversible, potentially fatal neurological brain damage syndrome.</li>
+          <li><b>Concomitant Macrolide Antibiotic Therapy:</b> Absolute contraindication if you are taking prescription macrolide antibiotics (such as Azithromycin, Clarithromycin, or Erythromycin). Berberine can interact to compound risks of prolonged QT intervals, triggering dangerous ventricular arrhythmias.</li>
+          <li><b>Persistence of Loose Stools Beyond 48 Hours:</b> If transient bowel loosening triggers severe dizziness, a cold sweat, or is accompanied by blood or pus in the stool, signal a deep infection requiring intensive clinical stabilization.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Entry 85: Borago officinalis ── -->
+<section class="db-entry reveal" id="entry-borage">
+  <div class="wrap">
+    <div class="db-entry-head">
+      <div class="db-entry-num">85</div>
+      <div>
+        <div class="db-sci-name">Borago officinalis · L. · Boraginaceae</div>
+        <h2>Borage</h2>
+        <p class="db-summary">The vibrant blue, star-shaped flowers and coarse, bristly leaves synthesize a matrix dominated by water-soluble mucilage polysaccharides, mineral salts (soluble silica, potassium), and highly toxic <b>unsaturated pyrrolizidine alkaloids (PAs)</b> (lycopsamine, intermedine, amabiline). Conversely, cold-pressed lipid fractions from mature seeds yield <b>borage seed oil</b>, entirely PA-free and rich in polyunsaturated fatty acids, specifically <b>gamma-linolenic acid (GLA)</b> (20–26%) and linoleic acid. GLA is rapidly converted to dihomo-gamma-linolenic acid (DGLA), competing with arachidonic acid for cellular cyclooxygenase (COX) and 15-lipoxygenase to prioritize series-1 prostaglandins (PGE₁) and 15-hydroxyeicosatetraenoic acid (15-HETE) biosynthesis, downregulating pro-inflammatory cytokines and cooling systemic tissue heat while maintaining flexible skin margins. Raw leaves/flowers strictly prohibited (hepatotoxic PA content); internal use restricted exclusively to certified PA-free seed oil.</p>
+      </div>
+    </div>
+
+    <!-- SECTION I: MECHANISM ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// I. mechanism of action</div>
+      <ul>
+        <li><b>Systemic Eicosanoid Pathway Shifting (GLA Seed Oil):</b> Ingested gamma-linolenic acid bypassing the liver is rapidly converted by the enzyme elongase into dihomo-gamma-linolenic acid (DGLA). DGLA competes directly with arachidonic acid for the cellular enzymes cyclooxygenase (COX) and 15-lipoxygenase. This metabolic shift prioritizes the biosynthesis of series-1 prostaglandins (PGE<sub>1</sub>) and 15-hydroxyeicosatetraenoic acid (15-HETE), which downregulate pro-inflammatory cytokines, cooling down systemic tissue heat and helping to maintain flexible skin tissue margins.</li>
+        <li><b>Topical Mucilaginous Coating (Aerial Parts):</b> When applied externally, the water-soluble mucilage polysaccharides form a viscoelastic physical hydro-gel patch over raw or chafed epidermal cells, shielding exposed sensory nerve endings from friction.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION II: PROCESSING ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// II. kitchen processing</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Pyrrolizidine Hepatotoxicity & VOD-Ban Boundaries</div>
+        <ul>
+          <li><strong>CRITICAL LIVER TOXICITY WARNING:</strong> The raw leaves and flowers of <em>Borago officinalis</em> contain hepatotoxic <b>unsaturated pyrrolizidine alkaloids (PAs)</b>. <strong>Ingesting raw borage leaves, brewing a crude borage leaf tea, or taking borage leaf juices can cause acute hepatic veno-occlusive disease (VOD), where the microscopic blood vessels inside the liver swell and close.</strong> This leads to rapid liver cell destruction, abdominal fluid buildup (ascites), permanent cirrhosis, and fatal liver failure. <strong>INTERNAL CONSUMPTION OF BORAGE LEAF OR FLOWER EXTRACTIONS IS STRICTLY PROHIBITED.</strong> Internal use is restricted exclusively to cold-pressed borage seed oil that has been industrially certified as 100% PA-free.</li>
+        </ul>
+      </div>
+      <ol class="db-steps">
+        <li><b>Dosing:</b> Measure exactly 2 mL (~1/2 teaspoon) of pure, cold-pressed, certified PA-free <em>Borago officinalis</em> seed oil. Do not exceed this limit per application cycle; maintaining precise dosing prevents unnecessary epidermal saturation.</li>
+        <li><b>The Thermal Solvent Prohibition:</b> <em>Never boil, microwave, or high-heat borage seed oil.</em> The active polyunsaturated fatty acid chains (GLA) contain multiple fragile double chemical bonds. Exposing the oil to high thermal energy shatters these bonds instantly, oxidizing the oil and forming inflammatory free radicals that degrade the therapeutic value of the lipid matrix.</li>
+        <li><b>Carrier Emulsion Integration:</b> For localized application over dry, intact skin areas, mix the 2 mL of borage seed oil directly into 10 mL of a stable, unmedicated neutral lipid carrier, such as pure jojoba oil or sweet almond oil. Whisk gently inside a glass vessel until completely clear.</li>
+        <li><b>Application:</b> Soak a sterile gauze pad in the cold lipid blend and lay it directly over a dry, itchy skin patch or areas of post-exertional joint tightness for <strong>exactly 20 minutes</strong> once daily. Immediately blot away any excess oil with a clean tissue. Discontinue usage after 14 consecutive days.</li>
+      </ol>
+    </div>
+
+    <!-- SECTION III: INDICATIONS ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// III. clinical indications</div>
+      <ul>
+        <li><b>Topical Support for Minor Superficial Skin Dryness:</b> Localized GLA lipid restoration to help deeply hydrate, soothe, and ease mild, localized winter skin flaking or dry epidermal itchiness, <em>strictly where the skin barrier is completely closed and unbroken.</em></li>
+        <li><b>Adjuvant Support for Normal Epidermal Elasticity:</b> Short-term external support to help smooth out minor, rough, or scaling skin patches caused by dry indoor air currents or friction chafing.</li>
+        <li><b>Minor Joint Stiffness Following Physical Over-Exertion:</b> Systemic GLA support (via commercial, PA-free oral softgels) to help maintain comfortable joint mobility following high-intensity training cycles.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION IV: TRIAGE ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// IV. the allopathic triage hardline</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Critical Warning</div>
+        <ul>
+          <li><b>Signs of Accidental Internal Leaf/Flower Ingestion:</b> Immediate clinical liver monitoring is mandatory if an individual has ingested crude borage leaf juices or teas, followed by sudden upper right-side abdominal pain, unexpected swelling of the belly (ascites), unexplained dark urine, or yellowing of the skin and eyes (jaundice), signaling acute hepatic veno-occlusive disease.</li>
+          <li><b>Onset of a Spreading Cutaneous Bacterial Infection:</b> Absolute topical rule: <strong>Never apply borage seed oil or lipid blends over open, weeping, bleeding, or purulent skin lesions.</strong> If a dry skin patch develops rapidly expanding redness, tight shiny swelling, throbbing heat, or leaks pus, it signals cellulitis requiring immediate prescription antibiotic therapy.</li>
+          <li><b>Concomitant Pharmaceutical Anticoagulant Therapy:</b> Absolute safety rule: <strong>Never consume oral borage seed oil if you take prescription blood thinners (such as Warfarin, Clopidogrel, or Apixaban).</strong> GLA can mildly prolong bleeding times by inhibiting platelet aggregation; combining them risks bruising or internal hemorrhaging.</li>
+          <li><b>The 2-Week Pre-Surgical Elimination Command:</b> Discontinue all internal use of borage seed oil at least 14 days prior to any scheduled surgical or dental procedure to minimize the risk of unmanaged bleeding in the operating suite.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Entry 86: Capsella bursa-pastoris ── -->
+<section class="db-entry reveal" id="entry-shepherds-purse">
+  <div class="wrap">
+    <div class="db-entry-head">
+      <div class="db-entry-num">86</div>
+      <div>
+        <div class="db-sci-name">Capsella bursa-pastoris · (L.) Medik. · Brassicaceae</div>
+        <h2>Shepherd's Purse</h2>
+        <p class="db-summary">The flat, heart-shaped seed pods and deeply lobed leaves of <em>Capsella bursa-pastoris</em> synthesize a highly specific, complex hemostatic matrix dominated by a specialized water-soluble <b>hemostatic peptide</b>, along with dense reserves of <b>flavonoids</b> (primarily <b>diosmin</b> and rutin), glucosinolates (sinigrin), vasoactive amines (tyramine, histamine), and organic acids. Hemostatic peptide fraction promotes activation of local clotting factors and accelerates platelet clustering at injured capillary beds; diosmin prolongs vasoconstrictor effect of norepinephrine on venous smooth muscle walls to increase venous tone, reduce microvascular permeability, and physically narrow dilated blood vessels, helping check minor self-limiting bleeding and fluid leaking.</p>
+      </div>
+    </div>
+
+    <!-- SECTION I: MECHANISM ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// I. mechanism of action</div>
+      <ul>
+        <li><b>Microvascular Hemostatic Activation:</b> Upon systemic absorption or direct localized contact, the unique peptide fraction acts as a mild, localized coagulant accelerator. It interacts with peripheral tissues to promote the activation of local clotting factors and accelerate structural platelet clustering at injured capillary beds.</li>
+        <li><b>Diosmin-Mediated Venous Wall Constriction:</b> Concurrently, the heavy payload of the bioflavonoid diosmin prolongs the vasoconstrictor effect of norepinephrine on the venous smooth muscle walls. This increases venous tone, reduces microvascular capillary permeability, and physically narrows loose, dilated blood vessels, helping to check minor, self-limiting bleeding and fluid leaking.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION II: PROCESSING ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// II. kitchen processing</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Tyramine Cardiovascular Voltage & The Concomitant MAOI Ban</div>
+        <ul>
+          <li><strong>CRITICAL PHARMACOLOGICAL WARNING:</strong> <em>Capsella bursa-pastoris</em> contains highly active vasoactive amines, specifically <b>tyramine</b>. <strong>If you consume shepherd's purse while taking prescription Monoamine Oxidase Inhibitor (MAOI) antidepressants, the tyramine cannot be broken down by your liver. This forces a sudden, massive release of norepinephrine, triggering an immediate, life-threatening hypertensive crisis (blood pressure spiking to lethal levels), blinding headaches, chest pain, and stroke.</strong> Furthermore, its hemostatic properties mean it must never be used long-term or by anyone with a clotting history. Continuous usage must never exceed 3 consecutive days.</li>
+        </ul>
+      </div>
+      <ol class="db-steps">
+        <li><b>Dosing:</b> Weigh exactly 2 grams of thoroughly dried <em>Capsella bursa-pastoris</em> aerial parts (~1 large tablespoon). Do not exceed this boundary per preparation cycle; over-concentration aggressively increases the amine payload and risks acute stomach nausea.</li>
+        <li><b>Mechanical Opening:</b> Crumble the dried stems and heart-shaped pods firmly between clean fingers directly into a ceramic mug to fracture the dense seed cases, ensuring the solvent can cleanly access the water-soluble hemostatic peptides.</li>
+        <li><b>Hydro-Thermal Solvent Separation:</b> Pour exactly 150 mL of water (H<sub>2</sub>O) heated to a controlled threshold of <strong>exactly 90°C to 95°C</strong> directly over the herb.</li>
+        <li><b>THE GENTLE INFUSION RESTRAINT:</b> <em>Never boil shepherd's purse continuously and never use an uncovered rolling boil (100°C).</em> The core hemostatic peptides are sensitive to prolonged, violent thermal stress. Boiling them in an open pot denatures the active proteins, stripping the liquid of its capillary-binding potential. Sub-boiling water optimizes extraction safely.</li>
+        <li><b>The Sealed Steeping Window:</b> Immediately cover the mug tightly with a heavy saucer to trap steam. Let the mixture sit undisturbed to steep for <strong>exactly 15 minutes</strong>.</li>
+        <li><b>Separation:</b> Strain the clear, brownish-yellow, distinctly salty and herbal liquid through a fine wire sieve into a cup, discarding the spent plant mass completely. Drink warm. For minor, self-limiting menstrual spotting, drink slowly in small sips strictly <em>following</em> a solid meal.</li>
+      </ol>
+    </div>
+
+    <!-- SECTION III: INDICATIONS ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// III. clinical indications</div>
+      <ul>
+        <li><b>Adjuvant for Minor, Self-Limiting Menstrual Spotting:</b> Short-term microvascular support to help ease minor, temporary spotting between normal cycles <em>after an allopathic physician has completely ruled out underlying structural pathographies.</em></li>
+        <li><b>Symptomatic Support for Minor Post-Exertional Bleeding Gums:</b> Brief localized astringent rinse to help soothe and check minor capillary bleeding from gums after intensive flossing or routine dental cleaning, <em>used strictly as a spit-out mouthwash.</em></li>
+        <li><b>Topical Compress for Minor Shallow Nosebleeds:</b> Brief external capillary support <em>applied via a saturated cold compress held firmly against the bridge of the nose</em> to assist the body's natural blood clotting loops during minor, self-limiting winter nosebleeds.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION IV: TRIAGE ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// IV. the allopathic triage hardline</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Critical Warning</div>
+        <ul>
+          <li><b>History of Thromboembolic Disease or Hypercoagulability:</b> Absolute contraindication if you have a history of Deep Vein Thrombosis (DVT), Pulmonary Embolism (PE), ischemic stroke, heart attacks, or are currently taking prescription blood thinners. Accelerating clotting pathways risks catastrophic arterial or venous clotting events.</li>
+          <li><b>Onset of Severe Uterine Flooding or Suspected Pregnancy:</b> Absolute emergency criteria: If menstrual spotting turns into sudden, continuous flooding (soaking a pad in under an hour), contains massive blood clots, or is accompanied by sharp lower abdominal pain, signaling a miscarriage, ectopic pregnancy, or severe uterine hemorrhaging requiring immediate emergency department intervention.</li>
+          <li><b>Concomitant Prescription Antidepressant (MAOI) Therapy:</b> As stated, an absolute safety ban applies to anyone taking MAOI medications due to the imminent threat of a fatal hypertensive crisis.</li>
+          <li><b>Presence of Oxalate Kidney Stones:</b> Avoid usage if diagnosed with chronic kidney stone disease, as shepherd's purse carries high baseline concentrations of organic oxalates that can accelerate stone crystallization within the renal pathways.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Entry 87: Carum carvi ── -->
+<section class="db-entry reveal" id="entry-caraway">
+  <div class="wrap">
+    <div class="db-entry-head">
+      <div class="db-entry-num">87</div>
+      <div>
+        <div class="db-sci-name">Carum carvi · L. · Apiaceae</div>
+        <h2>Caraway</h2>
+        <div class="db-names">
+        <span class="db-name-pair"><span class="db-name-lang">HI</span><span class="db-name-val">शाहजीरा · Shahjeera</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">BN</span><span class="db-name-val">শাহজিরা · Shahjira</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">MR</span><span class="db-name-val">शहाजिरे · Shahajire</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">GU</span><span class="db-name-val">શાહજીરું · Shahjiru</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">PA</span><span class="db-name-val">ਸ਼ਾਹੀ ਜ਼ੀਰਾ · Shahi Jeera</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">TA</span><span class="db-name-val">சீமை சீரகம் · Seemai Seeragam</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">TE</span><span class="db-name-val">సీమ జీలకర్ర · Seema Jeelakarra</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">KN</span><span class="db-name-val">ಶಾಜೀರಿಗೆ · Shajirige</span></span>
+        </div>
+        <p class="db-summary">The crescent-shaped, ribbed fruits (commonly referred to as seeds) of <em>Carum carvi</em> synthesize a dense, highly localized lipophilic <b>volatile essential oil matrix</b> (3–7%) dominated by the monoterpene ketone <b>d-carvone</b> (50–60%) and monoterpene hydrocarbon <b>d-limonene</b> (40–45%), structurally balanced by water-soluble phenolic acids, furanochromones, and bioflavonoids (quercetin). D-carvone and d-limonene function as direct, non-specific calcium channel antagonists blocking extracellular Ca²⁺ influx across smooth muscle cell membranes to halt erratic, hyper-reactive muscle contractions driving painful cramping; volatile oil alters surface tension of trapped intestinal gas bubbles to trigger coalescence into larger single air pockets, enabling easy venting and eliminating bloating and distension.</p>
+      </div>
+    </div>
+
+    <!-- SECTION I: MECHANISM ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// I. mechanism of action</div>
+      <ul>
+        <li><b>Myotropic Gastrointestinal Spasmolysis (Calcium Channel Antagonism):</b> Upon ingestion, the lipophilic d-carvone and d-limonene molecules diffuse rapidly into the smooth muscle walls of the stomach and intestines. At the cellular level, these monoterpenes function as direct, non-specific <i>calcium channel antagonists</i>, blocking the influx of extracellular calcium ions (Ca<sup>2+</sup>) across the voltage-gated channels of smooth muscle cell membranes. By arresting this intracellular calcium spike, caraway halts the erratic, hyper-reactive muscle contractions that drive painful abdominal cramping.</li>
+        <li><b>Carminative Gaseous Coalescence:</b> Simultaneously, the volatile oil fraction alters the surface tension of trapped intestinal gas bubbles. It triggers the mechanical <i>coalescence of micro-bubbles</i> into larger, single air pockets, dropping localized gas pressure and allowing the upper and lower digestive tracts to easily vent the gas, eliminating bloating and distension.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION II: PROCESSING ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// II. kitchen processing</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ The Exposed Crushing Law & Volatile Evaporation Ban</div>
+        <ul>
+          <li><strong>CRITICAL VOLATILE PROCESSING WARNING:</strong> The primary carminative agents in caraway seeds are highly volatile monoterpenes (<b>d-carvone</b> and <b>d-limonene</b>) stored under high pressure in specialized internal oil channels (vittae). <strong>If you crush caraway seeds and boil them in an open, uncovered pot, the active oils will completely evaporate into the surrounding air within 120 seconds, leaving behind a flat, spent fluid stripped of all therapeutic value.</strong> Furthermore, pre-ground caraway seeds from a grocery tin are clinically useless, as exposure to light and oxygen rapidly oxidizes the terpene resins into stale, inactive byproducts.</li>
+        </ul>
+      </div>
+      <ol class="db-steps">
+        <li><b>Dosing:</b> Weigh exactly 2 grams of whole, dry <em>Carum carvi</em> seeds (~1 flat teaspoon). Do not exceed this boundary per preparation cycle; over-concentration can trigger temporary upper gastric acid reflux or mild throat rawness.</li>
+        <li><b>The Mandatory Fresh-Cracking Window:</b> Place the whole seeds into a clean manual spice mill or heavy mortar and pestle. <strong>Crack them coarsely immediately before extraction.</strong> This mechanical rupture tears open the thick structural walls of the internal vittae channels, releasing the d-carvone liquid.</li>
+        <li><b>Hydro-Thermal Solvent Separation:</b> Immediately scrape the freshly cracked seed fragments directly into a warm ceramic mug. Pour exactly 150 mL of water (H<sub>2</sub>O) heated to a controlled threshold of <strong>exactly 90°C to 95°C</strong> directly over the fragments.</li>
+        <li><b>The Sealed Condensation Window:</b> Immediately seal the mug tightly with a heavy ceramic saucer or lid to trap the rising steam. Let the mixture sit undisturbed to steep for <strong>exactly 10 minutes</strong>. As the volatile terpenes vaporize inside the sealed space, they will hit the cool underside of the heavy lid, condense, and fall back down into the liquid solvent.</li>
+        <li><b>Separation:</b> Strain the clear, pale amber-yellow, highly aromatic, and slightly spicy liquid through a fine wire mesh filter into a clean cup, discarding the spent seed sediment completely.</li>
+        <li><b>Application:</b> Drink warm. For acute post-meal gas, bloating, or mild stomach twisting, consume slowly in small sips strictly <em>following</em> the meal.</li>
+      </ol>
+    </div>
+
+    <!-- SECTION III: INDICATIONS ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// III. clinical indications</div>
+      <ul>
+        <li><b>Transient Postprandial Upper Digestive Bloating:</b> Carminative support to help collapse trapped gas micro-bubbles and ease the tight, distended feeling in the upper stomach after eating heavy starches or brassica vegetables.</li>
+        <li><b>Minor Self-Limiting Gastrointestinal Spasms:</b> Localized smooth muscle relaxation to help calm minor, temporary abdominal cramping caused by sudden dietary shifts or nervous digestion.</li>
+        <li><b>Postprandial Lower Bowel Flatulence:</b> Carminative support to help ease the painful passage of trapped lower intestinal gas pockets.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION IV: TRIAGE ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// IV. the allopathic triage hardline</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Critical Warning</div>
+        <ul>
+          <li><b>Onset of Acute Obstructive Abdominal Symptoms:</b> Absolute clinical emergency: If digestive cramping turns into sudden, agonizing, localized pain, persistent projectile vomiting, an absolute inability to pass gas or stool, or a high fever (>38.5°C). This signals acute appendicitis, cholecystitis, or a mechanical bowel obstruction rather than simple post-meal gas; seek immediate emergency hospitalization.</li>
+          <li><b>Presence of Severe Gastroesophageal Reflux Disease (GERD):</b> Absolute contraindication. If drinking triggers severe, burning pain behind the breastbone (heartburn) radiating up into the throat. The carminative monoterpenes aggressively relax the smooth muscle of the lower esophageal sphincter, allowing stomach acid to surge upward and worsen tissue erosion in the esophagus.</li>
+          <li><b>Signs of Accidental Ocular or Respiratory Exposure:</b> If finely ground seed dust or raw volatile oils are introduced to the eyes or inhaled, leading to sudden throat choking, continuous coughing fits, or an inability to open the eyelids. Seek immediate professional toxicological oil flushing.</li>
+          <li><b>Apiaceae Family Cross-Sensitivity Explosion:</b> Discontinue use immediately if consumption triggers a sudden widespread skin rash, hives, or swelling of the lips, indicating cross-sensitization in individuals highly allergic to celery, carrots, fennel, or anise.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Entry 88: Cassia angustifolia ── -->
+<section class="db-entry reveal" id="entry-senna">
+  <div class="wrap">
+    <div class="db-entry-head">
+      <div class="db-entry-num">88</div>
+      <div>
+        <div class="db-sci-name">Cassia angustifolia (Vahl) H.S.Irwin & Barneby · Fabaceae</div>
+        <h2>Senna</h2>
+        <div class="db-names">
+        <span class="db-name-pair"><span class="db-name-lang">SA</span><span class="db-name-val">स्वर्णपत्री · Swarnapatri</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">HI</span><span class="db-name-val">सोनामुखी · Sonamukhi</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">BN</span><span class="db-name-val">সোনামুখী · Sonamukhi</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">MR</span><span class="db-name-val">सोनामुखी · Sonamukhi</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">PA</span><span class="db-name-val">ਸਨਾ · Sana</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">TA</span><span class="db-name-val">நிலவாரை · Nilavarai</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">TE</span><span class="db-name-val">సోనామూకి · Sonamukhi</span></span>
+        <span class="db-name-pair"><span class="db-name-lang">KN</span><span class="db-name-val">ಸೊನಾಮುಖಿ · Sonamukhi</span></span>
+        </div>
+        <p class="db-summary">The brittle, greyish-green leaflets and flat, paper-like seed pods of <em>Cassia angustifolia</em> (also classified as <em>Senna alexandrina</em>) synthesize a highly specialized, water-soluble anthracene matrix dominated by <b>anthraquinone glycosides</b>, specifically <b>sennosides A and B</b> (2–3%), structurally balanced by secondary anthraquinones (aloe-emodin, rhein), mucilage polysaccharides, and naphthalene glucosides. Ingested sennosides pass completely unabsorbed through stomach and small intestine; upon colon entry, bacterial β-glucosidase enzymes cleave sugar molecules to transform inert sennosides into highly active metabolite rhein anthrone, which irritates myenteric plexus (Auerbach's plexus) cells to inhibit Na⁺/K⁺-ATPase pumps (blocking water reabsorption while actively pumping sodium, potassium, fluid into lumen) and trigger unmanaged prokinetic giant migrating contractions to rapidly accelerate colonic transit.</p>
+      </div>
+    </div>
+
+    <!-- SECTION I: MECHANISM ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// I. mechanism of action</div>
+      <ul>
+        <li><b>The Systemic Enteric Cleavage (Prodrug Axis):</b> Ingested sennosides pass completely unabsorbed and unchanged through the stomach and small intestine, shielded by their sugar bonds from gastric acid and upper digestive enzymes. Upon entering the large intestine (colon), <i>bacterial β-glucosidase enzymes</i> synthesized by native gut microbiota cleave the sugar molecules away, transforming the inert sennosides into the highly active metabolite <i>rhein anthrone</i>.</li>
+        <li><b>Direct Myenteric Plexus Irritation & Contact Laxation:</b> Rhein anthrone acts as a direct, localized tissue irritant to the cells of the colonic mucosa and the <i>myenteric plexus (Auerbach's plexus)</i>. This irritation induces a dual action:
+          <ul style="margin-top: 0.5em; margin-bottom: 0.5em;">
+            <li><i>Inhibition of Net Fluid Absorption:</i> It blocks Na<sup>+</sup>/K<sup>+</sup>-ATPase pumps along the intestinal wall, halting water reabsorption while actively pumping sodium, potassium, and fluid into the bowel lumen (secretory laxation).</li>
+            <li><i>Prokinetic Giant Migrating Contractions:</i> It triggers unmanaged, forceful smooth muscle peristalsis, rapidly accelerating colonic transit to sweep out stool mass.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- SECTION II: PROCESSING ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// II. kitchen processing</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Acute Electrolyte Drains & The Laxative Dependency Law</div>
+        <ul>
+          <li><strong>CRITICAL PHARMACOLOGICAL WARNING:</strong> <em>Cassia angustifolia</em> is a high-potency contact stimulant. <strong>Exceeding dry-weight thresholds or using senna extractions continuously for more than 7 consecutive days can cause severe, life-threatening electrolyte depletion, characterized by a dangerous drop in potassium (hypokalemia).</strong> Hypokalemia can trigger acute cardiac arrhythmias (irregular heartbeats), severe muscle weakness, and permanent kidney damage. Furthermore, long-term chronic use destroys the native nerves of the myenteric plexus, creating a paralyzed, non-functioning bowel ("cathartic colon") completely dependent on artificial chemical stimulation to pass stool. Continuous usage must never exceed 7 days.</li>
+        </ul>
+      </div>
+      <ol class="db-steps">
+        <li><b>Dosing:</b> Weigh exactly 1 gram of thoroughly dried <em>Cassia angustifolia</em> leaflets. Do not exceed this boundary per preparation cycle; over-concentration aggressively spikes the rhein anthrone payload, causing agonizing, violent intestinal griping and watery diarrhea.</li>
+        <li><b>Mechanical Opening:</b> Crumble the brittle leaflets gently between clean fingers directly into a ceramic mug to fracture the structural leaf margins, making the water-soluble sennosides accessible to the solvent.</li>
+        <li><b>Hydro-Thermal Solvent Separation:</b> Pour exactly 150 mL of water (H<sub>2</sub>O) heated to a controlled threshold of <strong>exactly 85°C to 90°C</strong> directly over the leaf fragments.</li>
+        <li><b>THE SUB-BOILING THERMAL WINDOW:</b> <em>Never boil senna leaves continuously and never use an uncovered rolling boil (100°C).</em> Excessive boiling extracts heavy, resinous secondary fractions that aggressively irritate the stomach lining, causing nausea and severe abdominal cramping without increasing the therapeutic value of the sennosides. Sub-boiling water ensures a clean, targeted extraction.</li>
+        <li><b>The Sealed Steeping Window:</b> Immediately cover the mug tightly with a heavy saucer to trap the steam. Let the mixture sit undisturbed to steep for <strong>exactly 10 minutes</strong> (do not over-steep).</li>
+        <li><b>Separation:</b> Strain the clear, brownish-yellow, distinctly bitter and grass-like fluid through a fine wire sieve into a cup, discarding the spent leaf mass completely.</li>
+        <li><b>Application:</b> Drink warm. <strong>THE TIMING PROTOCOL:</strong> <em>Drink the entire 150 mL fluid dose immediately before sleep.</em> Because the prodrug requires exactly 8 to 10 hours to transit to the colon and undergo bacterial cleavage, this timing aligns the resulting contact-laxation wave with your natural morning waking bowel cycles.</li>
+      </ol>
+    </div>
+
+    <!-- SECTION III: INDICATIONS ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// III. clinical indications</div>
+      <ul>
+        <li><b>Acute Occasional Functional Constipation:</b> Short-term contact stimulation to help clear acute, temporary, self-limiting stool stagnation caused by sudden travel shifts or brief dietary changes.</li>
+        <li><b>Bowel Evacuation Adjuvant Prior to Diagnostic Clearance:</b> Brief structural support to help thoroughly empty the lower bowel floor prior to clinical assessments, paired with allopathic oversight.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION IV: TRIAGE ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// IV. the allopathic triage hardline</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Critical Warning</div>
+        <ul>
+          <li><b>Onset of Acute Unexplained Abdominal Pain or Cramping:</b> Absolute emergency criteria: If constipation is accompanied by sudden, severe, or localized abdominal pain, persistent vomiting, a rigid "board-like" belly, or a high fever (>38.5°C). These are primary indicators of acute appendicitis, a mechanical bowel obstruction, or an intestinal perforation. Forcing bowel contractions against an obstruction risks fatal bowel rupture; seek immediate emergency surgery.</li>
+          <li><b>Presence of Active Inflammatory Bowel Disease (IBD):</b> Absolute contraindication if you have been diagnosed with Crohn's disease, Ulcerative Colitis (UC), or severe diverticulitis. Stimulant anthraquinones aggressively aggravate mucosal inflammation, risking massive intestinal bleeding or toxic megacolon.</li>
+          <li><b>Concomitant Pharmaceutical Digoxin/Diuretic Therapy:</b> Absolute safety rule: <strong>Never consume senna extractions if you take prescription heart medications like Digoxin or water pills (Furosemide).</strong> Senna-induced potassium loss aggressively multiplies the toxic cardiotoxicity of Digoxin, risking sudden, fatal cardiac arrest.</li>
+          <li><b>Pregnancy and Gestational Precaution:</b> Banned for use during pregnancy and lactation. Active anthraquinone fractions can stimulate mild uterine smooth muscle contractions and pass into breastmilk, potentially causing severe watery diarrhea in nursing infants.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Entry 89: Chelidonium majus ── -->
+<section class="db-entry reveal" id="entry-celandine">
+  <div class="wrap">
+    <div class="db-entry-head">
+      <div class="db-entry-num">89</div>
+      <div>
+        <div class="db-sci-name">Chelidonium majus · L. · Papaveraceae</div>
+        <h2>Greater Celandine</h2>
+        <p class="db-summary">The bright green leaves and hollow stems of <em>Chelidonium majus</em> synthesize a vibrant, opaque, saffron-yellow latex juice heavily dominated by toxic, highly specialized <b>isoquinoline alkaloids</b> (1.0–2.0%), including <b>chelidonine</b>, sanguinarine, coptisene, chelerythrine, and berberine, structurally bound to unique chelidonic organic acids. Chelidonine acts as central and localized anti-spasmodic agent altering intracellular calcium kinetics to relax smooth muscle walls of biliary tract, gallbladder, and upper GI pathways; topically, sanguinarine and chelerythrine act as direct caustic tissue irritants triggering localized protein denaturation (coagulation) and mitotic inhibition within hyper-proliferative epithelial tissues causing abnormal cell matrices to dry out, necrose, and slough away. STRICT internal use prohibition (acute idiosyncratic hepatotoxicity/fatal liver failure risk); topical-only protocol for isolated minor hand warts via fresh micro-spot latex application.</p>
+      </div>
+    </div>
+
+    <!-- SECTION I: MECHANISM ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// I. mechanism of action</div>
+      <ul>
+        <li><b>The Systemic Papaveraceae Spasmolysis Axis (Chelidonine):</b> Upon ingestion, isolated chelidonine acts directly on smooth muscle tissue by altering intracellular calcium kinetics. It functions as a central and localized <i>anti-spasmodic agent</i>, specifically relaxing the smooth muscle walls of the biliary tract, gallbladder, and upper gastrointestinal pathways to ease biliary pressure.</li>
+        <li><b>Topical Protein Coagulation & Mitotic Inhibition (The Latex Blast):</b> When applied raw and unrefined directly to localized skin outgrowths, the alkaloids sanguinarine and chelerythrine act as direct, caustic tissue irritants. They trigger localized <i>protein denaturation (coagulation)</i> and inhibit cell mitosis within the hyper-proliferative epithelial tissues, causing abnormal local cell matrices to dry out, necrose, and slough away.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION II: PROCESSING ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// II. kitchen processing</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Acute Idiosyncratic Hepatotoxicity & Internal Use Ban</div>
+        <ul>
+          <li><strong>CRITICAL BIOLOGICAL WARNING:</strong> <em>Chelidonium majus</em> is a potent systemic liver toxin. <strong>Ingesting greater celandine teas, juices, or crude oral extractions can trigger severe, unpredictable, acute idiosyncratic hepatitis (toxic liver destruction), cholestatic jaundice, and fatal hepatic failure.</strong> Because the line between a therapeutic dose and a toxic liver-destroying dose is entirely unmanaged in crude preparations, <strong>INTERNAL CONSUMPTION OF GREATER CELANDINE IS STRICTLY PROHIBITED.</strong> Usage is restricted exclusively to targeted, external, spot-applied topical protocols on unbroken skin outgrowths.</li>
+        </ul>
+      </div>
+      <ol class="db-steps">
+        <li><b>Sourcing:</b> Locate a fresh, living <em>Chelidonium majus</em> plant during its active spring or summer growth phase. Wearing non-porous nitrile gloves and protective safety eyewear is mandatory during the entire harvesting and processing cycle to protect the eyes from caustic chemical burns.</li>
+        <li><b>Mechanical Opening:</b> Snip a single mature, hollow stem section using sharp kitchen shears. Gently squeeze the lower end of the stalk to force a single, concentrated droplet of the thick, opaque, saffron-yellow latex sap to pool at the cut margin.</li>
+        <li><b>The Pure Micro-Spot Shield:</b> <em>Do not apply the sap broadly across large skin surfaces.</em> Use a clean wooden toothpick to pick up a tiny, pinhead-sized bead of the fresh yellow sap.</li>
+        <li><b>Application Matrix:</b> Touch the toothpick tip directly onto a single, isolated, hard skin outgrowth (such as a minor common hand wart). <strong>THE STRATIFIED RESTRAINT:</strong> Ensure the liquid does not run or smear onto the surrounding healthy, soft skin. Let the sap dry completely at room temperature (20°C) for <strong>exactly 5 minutes</strong> to form a hard, dark orange-brown coating.</li>
+        <li><b>Clean Up:</b> Thoroughly wash the surrounding area with soap and warm water if any stray sap makes contact. Repeat this isolated spot-application once daily for a maximum of 7 consecutive days. Discontinue immediately if the area becomes red, warm, or painful.</li>
+      </ol>
+    </div>
+
+    <!-- SECTION III: INDICATIONS ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// III. clinical indications</div>
+      <ul>
+        <li><b>Topical Management of Minor, Isolated Hand Warts:</b> Localized caustic protein denaturation to help dry out and clear common, minor, benign hyper-proliferative skin outgrowths on the hands, <em>strictly where the surrounding skin margin is completely closed, unbroken, and uninflamed.</em></li>
+        <li><b>None Internal.</b> There are zero safe internal home recovery indications for this plant matrix.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION IV: TRIAGE ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// IV. the allopathic triage hardline</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Critical Warning</div>
+        <ul>
+          <li><b>Signs of Accidental Internal Ingestion:</b> If any greater celandine preparation is accidentally swallowed, followed by a sudden onset of dark, tea-colored urine, profound pale or clay-colored stools, intense upper right-side abdominal pain, and yellowing of the skin or eyes (jaundice). This is an absolute medical emergency signaling acute toxic liver failure; seek immediate hospital emergency room care.</li>
+          <li><b>Accidental Ocular Exposure Emergency:</b> If raw yellow sap splashes into the eyes, it triggers immediate, excruciating chemical burning and corneal inflammation. <strong>Flush the eyes continuously with large volumes of cold water or sterile saline solution for at least 15 minutes</strong> and seek immediate emergency ophthalmic evaluation to prevent permanent vision impairment.</li>
+          <li><b>Presence of Genital or Facial Lesions:</b> Absolute topical contraindication: <strong>Never apply greater celandine sap to outgrowths located on the face, eyelids, genitals, or highly sensitive mucosal tissue linings.</strong> The caustic alkaloids will drive deep tissue ulceration and severe chemical burning.</li>
+          <li><b>Onset of Localized Bacterial Cellulitis:</b> Discontinue use immediately if a treated skin outgrowth rapidly develops spreading redness, tight shiny swelling, severe throbbing pain, or leaks purulent green-yellow pus, signaling a secondary bacterial infection requiring prescription antibiotics.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Entry 90: Chimaphila umbellata ── -->
+<section class="db-entry reveal" id="entry-pipsissewa">
+  <div class="wrap">
+    <div class="db-entry-head">
+      <div class="db-entry-num">90</div>
+      <div>
+        <div class="db-sci-name">Chimaphila umbellata · (L.) W.P.C.Barton · Ericaceae</div>
+        <h2>Pipsissewa</h2>
+        <p class="db-summary">The leathery, glossy, evergreen leaves of <em>Chimaphila umbellata</em> synthesize a dense, highly specialized hydroquinone and tannin matrix dominated by benzoquinone glucoside <b>arbutin</b> (1.0–5.0%) and distinctive monomer <b>chimaphilin</b> (2,7-dimethyl-1,4-naphthoquinone), structurally balanced by exceptionally heavy <b>gallotannins</b> (10–18%), flavonoid glycosides, and triterpenes (ursolic acid). Arbutin passes stomach intact; upon reaching alkaline small intestine, undergoes enzymatic cleavage by microflora to free hydroquinone, rapidly absorbed and liver-conjugated into hydroquinone glucuronide/sulfate, filtered to kidneys where, in alkaline urinary environment (pH >7.0), de-esterifies to free hydroquinone for direct non-specific antimicrobial action on bladder wall to slow bacterial replication; gallotannins bind lower urinary tract mucosal proteins to cross-link surface structures, tightening loose leaky mucosa and toning down localized fluid leaking.</p>
+      </div>
+    </div>
+
+    <!-- SECTION I: MECHANISM ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// I. mechanism of action</div>
+      <ul>
+        <li><b>The Enteric-Renal Cleavage Axis (Arbutin/Hydroquinone):</b> Ingested arbutin passes largely intact through the acidic environment of the stomach. Upon reaching the alkaline medium of the small intestine, it undergoes enzymatic cleavage by resident microflora to yield free <i>hydroquinone</i>. Hydroquinone is rapidly absorbed and conjugated in the liver into hydroquinone glucuronide and sulfate. These inert conjugates travel through the bloodstream to the kidneys, where they are actively filtered into the urinary tract.</li>
+        <li><b>Alkaline Urinary Disruption:</b> Within an <i>alkaline urinary environment</i> (pH > 7.0), these conjugates de-esterify back into free, unstable hydroquinone. Free hydroquinone acts as a direct, non-specific antimicrobial agent along the bladder wall, breaking down pathogen cell walls to slow down bacterial replication.</li>
+        <li><b>Tannin-Mediated Membrane Constriction (Astringent):</b> Simultaneously, the massive gallotannin fraction binds directly to the proteins of the lower urinary tract mucosa. This induces a mild, localized <i>cross-linking of surface proteins</i>, which tightens loose, leaky mucosal structures and tones down localized fluid leaking.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION II: PROCESSING ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// II. kitchen processing</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Hydroquinone Toxicity & The Alkaline pH Diet Law</div>
+        <ul>
+          <li><strong>CRITICAL URINARY & METABOLIC WARNING:</strong> <em>Chimaphila umbellata</em> concentrates complex hydroquinones. <strong>If you drink pipsissewa tea while maintaining a highly acidic urine pH (driven by diets heavy in animal proteins or citrus fruits), the arbutin cannot split into its active form. It will remain stuck as a complex, unrefined irritant that causes intense kidney irritation, severe nausea, and vomiting without providing any antimicrobial value.</strong> Furthermore, hydroquinone is an aggressive, dose-dependent cellular toxin. <strong>Exceeding dry-weight thresholds or using pipsissewa continuously for more than 5 consecutive days can cause direct tubular renal injury, dark green discoloration of the urine, and systemic tissue breakdown.</strong></li>
+        </ul>
+      </div>
+      <ol class="db-steps">
+        <li><b>Dosing:</b> Weigh exactly 2 grams of thoroughly dried <em>Chimaphila umbellata</em> leaves. Do not exceed this limit under any circumstances per preparation cycle; keeping to this hard weight limit prevents toxic hydroquinone over-saturation in the renal tubules.</li>
+        <li><b>Mechanical Opening:</b> Cut the stiff, leathery leaves into tiny, 2mm cross-sections using clean kitchen shears. This shears through the thick, waxy cuticle layer, maximizing the surface area available to the solvent.</li>
+        <li><b>The Alkaline Priming Protocol:</b> Before extracting the herb, consume 1/2 teaspoon of sodium bicarbonate (bicarbonate of soda) dissolved in a glass of water to actively shift the baseline urinary pH into the mandatory alkaline zone (pH > 7.0).</li>
+        <li><b>Hydro-Thermal Solvent Separation:</b> Place the cut leaf fragments directly into a ceramic mug. Pour exactly 150 mL of clean water (H<sub>2</sub>O) heated to a controlled, sub-boiling threshold of <strong>exactly 80°C to 85°C</strong> directly over the herb.</li>
+        <li><b>THE SUB-BOILING THERMAL WINDOW:</b> <em>Never boil pipsissewa leaves continuously and never use an uncovered rolling boil (100°C).</em> Excessive heat extracts heavy, denaturing condensed tannin fractions that will aggressively lock up the stomach lining, causing immediate stomach pain and severe constipation. Sub-boiling water optimizes the extraction of the water-soluble arbutin.</li>
+        <li><b>The Sealed Infusion Window:</b> Immediately cover the mug tightly with a heavy ceramic saucer to lock in steam. Let the mixture sit undisturbed to steep for <strong>exactly 15 minutes</strong>.</li>
+        <li><b>Separation:</b> Strain the clear, dark amber-brown, highly astringent and distinctly leathery-tasting liquid through a fine wire mesh filter into a clean cup, discarding the spent leaf fibers completely. Drink warm. Take strictly <em>following</em> a solid meal to provide a protective food buffer for the stomach lining. Repeat up to twice daily for a maximum of 5 consecutive days.</li>
+      </ol>
+    </div>
+
+    <!-- SECTION III: INDICATIONS ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// III. clinical indications</div>
+      <ul>
+        <li><b>Adjuvant Support for Minor Urinary Tract Irritation:</b> Short-term arbutin-mediated support to help clean the bladder tract and soothe minor, temporary, self-limiting urinary heat and frequency at the earliest onset of seasonal irritation.</li>
+        <li><b>Minor Gastrointestinal Mucosal Looseness:</b> Mild tannin-mediated astringent support to help temporarily tone and bind loose, watery bowels brought on by temporary dietary shifts.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION IV: TRIAGE ── -->
+    <div class="db-sec">
+      <div class="db-sec-label">// IV. the allopathic triage hardline</div>
+      <div class="db-warn">
+        <div class="db-warn-head">⚠ Critical Warning</div>
+        <ul>
+          <li><b>Onset of an Acute Pyelonephritis (Kidney Infection) Emergency:</b> Absolute emergency criteria: If urinary heat or frequency is accompanied by sudden, sharp pain in the lower back or flank (costovertebral angle tenderness), a high fever (>38.5°C), severe shaking chills, nausea, or vomiting. These are primary indicators that a minor irritation has migrated into the kidneys, requiring immediate emergency hospitalization and intravenous prescription antibiotics.</li>
+          <li><b>Presence of Gross Hematuria or Unmanaged Urine Retention:</b> Discontinue use immediately if urine turns cloudy, bright pink, or displays visible blood clots, or if you develop an absolute inability to void urine, signaling a structural blockage or deep tissue trauma.</li>
+          <li><b>Pregnancy, Lactation, and Pediatric Ban:</b> Absolute contraindication. Hydroquinone is cytotoxic and can freely cross tissue boundaries, posing mutagenic and developmental threats to fetuses and nursing infants.</li>
+          <li><b>Pre-Existing Chronic Kidney Disease (CKD):</b> Completely banned for individuals diagnosed with baseline kidney impairment or renal insufficiency, as the processing of free hydroquinones places an unsustainable structural metabolic load on compromised nephrons.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="booknav">
   <div class="wrap">
     <a class="prev" href="index.html">← Back to Full Index</a>
@@ -4773,14 +5932,59 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 (function(){
   const btns=document.querySelectorAll('.db-letter');
   const items=document.querySelectorAll('#db-alpha-results li');
+  const entries=document.querySelectorAll('.db-entry');
+  const searchInput=document.getElementById('db-search-input');
+  const searchCount=document.getElementById('db-search-count');
+
+  const index=[];
+  entries.forEach(entry=>{
+    index.push({id:entry.id,text:entry.textContent.toLowerCase()});
+  });
+  const textById={};
+  index.forEach(e=>{textById[e.id]=e.text});
+
+  function clearSearch(){
+    searchCount.textContent='';
+    entries.forEach(e=>e.classList.remove('db-search-hide'));
+  }
+
   btns.forEach(btn=>{
     btn.addEventListener('click',function(){
+      searchInput.value='';
+      clearSearch();
       const l=this.dataset.letter;
       btns.forEach(b=>b.classList.remove('active'));
       this.classList.add('active');
       items.forEach(li=>li.classList.toggle('visible',li.dataset.letter===l));
     });
   });
+
+  let debounce;
+  searchInput.addEventListener('input',function(){
+    clearTimeout(debounce);
+    debounce=setTimeout(runSearch,120);
+  });
+
+  function runSearch(){
+    const q=searchInput.value.trim().toLowerCase();
+    if(!q){
+      clearSearch();
+      items.forEach(li=>li.classList.remove('visible'));
+      return;
+    }
+    btns.forEach(b=>b.classList.remove('active'));
+    let matches=0;
+    items.forEach(li=>{
+      const href=li.querySelector('a').getAttribute('href').slice(1);
+      const isMatch=(textById[href]||'').includes(q);
+      li.classList.toggle('visible',isMatch);
+      if(isMatch)matches++;
+    });
+    entries.forEach(e=>{
+      e.classList.toggle('db-search-hide',!textById[e.id].includes(q));
+    });
+    searchCount.textContent=matches+(matches===1?' match':' matches')+' for "'+searchInput.value.trim()+'"';
+  }
 })();
 </script>
 </body>
