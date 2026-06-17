@@ -118,6 +118,7 @@ body{
 .db-search-input::placeholder{color:var(--ash)}
 .db-search-input:focus{border-color:var(--red)}
 .db-search-count{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;color:var(--ash)}
+mark.db-search-mark{background:var(--yellow);color:var(--ink);padding:0;border-radius:1px}
 .db-alpha-row{display:flex;flex-wrap:wrap;gap:6px}
 .db-letter{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:none;border:1.5px solid var(--line);color:var(--ink);padding:5px 11px;cursor:pointer;transition:border-color .12s,color .12s}
 .db-letter:hover,.db-letter.active{border-color:var(--red);color:var(--red)}
